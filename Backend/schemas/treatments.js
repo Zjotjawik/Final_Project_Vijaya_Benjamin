@@ -10,11 +10,11 @@ const treatmentSchema = new mongoose.Schema({
     required: true,
   },
   picture: {
-    type: String, // You can store the URL to the picture here
-    required: false, // It's not required, but you can make it required if necessary
+    type: String,
+    required: false,
   },
   medicalUses: {
-    type: [String],
+    type: [Object],
     required: true,
   },
 });
@@ -22,3 +22,14 @@ const treatmentSchema = new mongoose.Schema({
 const Treatment = mongoose.model('Treatment', treatmentSchema);
 
 module.exports = Treatment;
+
+// {
+//   "_id": "ObjectId('')",
+//   "hindiName": "Joe Karlsson",
+//   "englishName": "MongoDB",
+//   "picture": "www.guacvsdousdegv.vasivubsa/bktacsfcu",
+//   "medicalUses": [
+//       { "symptom": "Fever", "description": "temperatures between 40 and 45 degrees" },  
+//       { "symptom": "Nausea",  "description": "Lost of consiusness" }
+//   ]
+// }
