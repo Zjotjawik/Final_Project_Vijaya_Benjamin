@@ -2,7 +2,6 @@ const User = require('../schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// ... (existing code)
 
 const signUp = async (req, res) => {
   try {
