@@ -1,16 +1,5 @@
 const User = require('../schemas/user');
 
-const createUser = async (req, res) => {
-  try {
-    const newUser = new User(req.body);
-    const savedUser = await newUser.save();
-    res.status(201).json({ success: true, message: 'User created', data: savedUser });
-  } catch (error) {
-    console.error('Error creating user:', error);
-    res.status(500).json({ success: false, error: 'Error creating user' });
-  }
-};
-
 const getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -61,9 +50,8 @@ const getAllUsers = async (req, res) => {
 };
 
 module.exports = {
-  createUser,
   getUser,
   updateUser,
   deleteUser,
-  getAllUsers
+  getAllUsers,
 };

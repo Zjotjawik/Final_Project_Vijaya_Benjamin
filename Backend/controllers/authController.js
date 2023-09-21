@@ -65,4 +65,10 @@ const signIn = async (req, res) => {
   }
 };
 
-module.exports = { signUp, signIn };
+const logout = (req, res) => {
+  // You can implement the logout logic here, such as clearing the JWT token or session data.
+  // Depending on your authentication approach, you may need to handle this differently.
+  res.json({ success: true, message: 'User logged out' });
+};
+
+module.exports = { signUp, signIn, logout };

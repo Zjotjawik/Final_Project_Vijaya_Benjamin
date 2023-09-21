@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./utils/connectDB');
 const treatmentRoutes = require('./routes/treatmentRoutes');
 const userRoutes = require('./routes/userRoutes'); 
-
+const authRoutes = require('./routes/authRoutes');
           
 cloudinary.config({ 
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
@@ -23,6 +23,8 @@ app.use(bodyParser.json());
 app.use('/treatments', treatmentRoutes);
 
 app.use('/users', userRoutes);
+
+app.use('/auth', authRoutes);
 
 
 connectDB();
