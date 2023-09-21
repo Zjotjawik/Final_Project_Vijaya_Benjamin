@@ -10,12 +10,10 @@ router.get('/profile', authMiddleware.authenticateToken, (req, res) => {
   res.json({ message: 'Accessed protected route', user: req.user });
 });
 
-router.post('/', userController.createUser);
+// Remove the POST route for creating a user
 router.get('/', userController.getAllUsers);
 router.get('/:id', userController.getUser);
 router.put('/:id', userController.updateUser);
 router.delete('/:id', userController.deleteUser);
-router.post('/signup', authController.signUp);
-router.post('/signin', authController.signIn);
 
 module.exports = router;
