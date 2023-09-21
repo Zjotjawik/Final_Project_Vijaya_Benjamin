@@ -2,6 +2,23 @@ const User = require('../schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const handleErrors = (error) => {
+  console.log(error.message, error.code);
+  let errors = { email: '', password: '' };
+
+  if(error.code === 11000) {
+    errors.email = 'that email is already registered';
+    return errors;
+  }
+
+  if(error.message.includes('user validation failed')) {
+    Object.values(error.errors).forEach(({properties}) => {
+      errors[properties.path] = properties.message;
+    }) 
+  }
+  return errors;
+}
+
 
 const signUp = async (req, res) => {
   try {
@@ -32,8 +49,9 @@ const signUp = async (req, res) => {
 
     res.json({ token });
   } catch (error) {
+    const errors = handleErrors(error);
     console.error('Error creating user:', error);
-    res.status(500).json({ error: 'Error creating user' });
+    res.status(500).json({ error: errors });
   }
 };
 
