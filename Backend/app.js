@@ -5,10 +5,12 @@ dotenv.config();
 const cloudinary = require('cloudinary');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./utils/connectDB');
 const treatmentRoutes = require('./routes/treatmentRoutes');
 const userRoutes = require('./routes/userRoutes'); 
 const authRoutes = require('./routes/authRoutes');
+
           
 cloudinary.config({ 
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
@@ -18,6 +20,7 @@ cloudinary.config({
 
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 
 app.use('/treatments', treatmentRoutes);

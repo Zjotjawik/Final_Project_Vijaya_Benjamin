@@ -1,6 +1,10 @@
 const User = require('../schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cookieOptions = {
+  httpOnly: true,
+  maxAge: 3600000,
+};
 
 const handleErrors = (error) => {
   console.log(error.message, error.code);
@@ -76,7 +80,9 @@ const signIn = async (req, res) => {
       expiresIn: '1h', // Token expiration time (adjust as needed)
     });
 
-    res.json({ token });
+    res.cookie('access_token', token, cookieOptions);
+
+    res.json({ message : 'Sign-in successful' });
   } catch (error) {
     console.error('Error signing in:', error);
     res.status(500).json({ error: 'Error signing in' });
@@ -84,9 +90,8 @@ const signIn = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  // You can implement the logout logic here, such as clearing the JWT token or session data.
-  // Depending on your authentication approach, you may need to handle this differently.
-  res.json({ success: true, message: 'User logged out' });
+  res.clearCookie('access_token');
+  res.json({ message: 'User logged out' });
 };
 
 module.exports = { signUp, signIn, logout };
