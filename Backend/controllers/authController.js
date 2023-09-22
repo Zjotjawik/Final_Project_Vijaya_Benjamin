@@ -28,10 +28,20 @@ const signUp = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
+    const existingEmailUser = await User.findOne({ email });
+
+    const existingUsernameUser = await User.findOne({ username });
+
+    if (existingEmailUser && existingUsernameUser) {
+      return res.status(400).json({ error: 'Email and username are already registered' });
+    }
+
+    if (existingEmailUser) {
+      return res.status(400).json({ error: 'Email is already registered' });
+    }
+
+    if (existingUsernameUser) {
+      return res.status(400).json({ error: 'Username is already taken' });
     }
 
     // Hash the password
@@ -91,7 +101,7 @@ const signIn = async (req, res) => {
 
 const logout = (req, res) => {
   res.clearCookie('access_token');
-  res.json({ message: 'User logged out' });
+  res.json({  message: 'User logged out' });
 };
 
 module.exports = { signUp, signIn, logout };
