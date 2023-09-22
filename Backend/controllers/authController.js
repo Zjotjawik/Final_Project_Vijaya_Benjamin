@@ -6,6 +6,7 @@ const cookieOptions = {
   maxAge: 3600000,
 };
 
+
 const handleErrors = (error) => {
   console.log(error.message, error.code);
   let errors = { email: '', password: '' };
