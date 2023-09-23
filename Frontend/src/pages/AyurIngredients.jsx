@@ -1,22 +1,30 @@
 import React from 'react'
 import '../styles/AyurIngredients.css';
 import { useState, useEffect } from 'react';
+import Axios from 'axios';
+
 export const AyurIngredients = () => {
 
   const [data, setData] = useState([]);
-
   useEffect(() => {
-    // Replace 'apiEndpoint' with the actual URL of your API endpoint
-    fetch('http://localhost:3000/treatments')
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error('Error fetching data: ', error));
-  }, []);
+    Axios.get('http://localhost:3000/treatments').then(res => {
+        setData(res.data)
+        console.log(res.data);
+    }).catch(err => console.log(err))
+}, [])
+
+  // useEffect(() => {
+  //   // Replace 'apiEndpoint' with the actual URL of your API endpoint
+  //  fetch('http://localhost:3000/treatments')
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.error('Error fetching data: ', error));
+  // }, []);
   
   
   return (
-    <div>
-      {data.map((item) => (
+    <>
+      {data.map((item) =>  (
 
 <table> <div key={item._id} className='container flex mt-16'>
    <div className='parallel'>
@@ -40,7 +48,7 @@ export const AyurIngredients = () => {
 ))}
 
  
-    </div>
+    </>
   )
 }
 

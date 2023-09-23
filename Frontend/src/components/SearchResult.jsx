@@ -22,3 +22,4 @@ const SearchResult = ({result}) => {
 }
 
 export default SearchResult
+// alert(`You selected ${result}!`)
