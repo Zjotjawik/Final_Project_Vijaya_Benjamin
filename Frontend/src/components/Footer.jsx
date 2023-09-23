@@ -14,7 +14,7 @@ export const Footer = () => {
                     <div className="row">
                         <div className="col-md-6 col-lg-5 col-12 ft-1">
                             
-                            <h3><img src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="" /><span>Ayur</span>Ease</h3>
+                            <h3><img className='footer-logo' src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="" /><span>Ayur</span>Ease</h3>
                             <p>Your Guide to Natural Healing </p>
                             <div className="footer-icons">
                      
@@ -58,11 +58,11 @@ export const Footer = () => {
                                 </li>
                                 </ul>
                         </div>
-                        <div className="col-md-6 col-lg-4 col-12 ft-4">
+                        <div className="social-links col-md-6 col-lg-4 col-12 ft-4">
                             <h5>AyurEase Online</h5>
-                            <p><i class="fa-solid fa-phone-volume"></i> +92 3121320483</p>
-                            <p><i class="fa-solid fa-envelope"></i> ayurease@gmail.com</p>
-                            <p><i class="fa-solid fa-paper-plane"></i>10115 Berlin, Germany.</p>
+                            <p><i className="fa-solid fa-phone-volume"></i> +92 3121320483</p>
+                            <p><i className="fa-solid fa-envelope"></i> ayurease@gmail.com</p>
+                            <p><i className="fa-solid fa-paper-plane"></i>10115 Berlin, Germany.</p>
                         </div>
                     </div>
                 </div>

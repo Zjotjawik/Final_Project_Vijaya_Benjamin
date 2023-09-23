@@ -5,8 +5,8 @@ const SearchResultsList = ({results}) => {
   return (
     <div className='search-bar-container'>
     <div className="results-list">
-    {results.map((result, id) => {
-      return  <SearchResult result={result.name} key={id} />;
+    {results?.map((result, id) => {
+      return  <SearchResult result={result} key={id} />;
     })}
   </div>
     </div>

@@ -10,7 +10,24 @@
 
    .row{
     display:flex;
+    flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: center;
+  }
+
+  .row{
+    flex:1;
+}
+
+  .social-links{
+    display: flex ;
+    flex-flow: column nowrap ;
+    justify-content: start ;
+    align-items: start ;
+  }  
+
+  .footer-logo{
+    display: inline;
   }
    
   .ft-1 h3 {
@@ -37,6 +54,12 @@
     padding: 0rem 5rem 0.8rem 0rem;
     font-weight: 600;
     color:rgba(8, 8, 230, 0.871);
+   
+  }
+
+  
+  .footer-icons{
+    margin-left: -80px;
   }
   
   .footer-icons .fa-brands {
