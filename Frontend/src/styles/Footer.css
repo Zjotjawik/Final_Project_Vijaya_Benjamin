@@ -6,6 +6,7 @@
 
   .container{
     text-align: center;
+    min-width: 100%;
   }
 
    .row{
@@ -15,9 +16,9 @@
     align-items: center;
   }
 
-  .row{
+  /* .row{
     flex:1;
-}
+} */
 
   .social-links{
     display: flex ;
@@ -29,6 +30,14 @@
   .footer-logo{
     display: inline;
   }
+
+  .ft-1 {
+    display: flex-start !important;
+    flex-flow: column nowrap !important;
+    justify-content: start !important;
+    align-items: start  !important;
+  }
+  
    
   .ft-1 h3 {
     font-weight: 700;

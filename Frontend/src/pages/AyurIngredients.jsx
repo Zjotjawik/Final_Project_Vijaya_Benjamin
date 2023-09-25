@@ -20,11 +20,11 @@ export const AyurIngredients = () => {
   //     .then((data) => setData(data))
   //     .catch((error) => console.error('Error fetching data: ', error));
   // }, []);
-  
+  console.log(data);
   
   return (
     <>
-      {data.map((item) =>  (
+      { data.map((item) =>  (
 
 <table> <div key={item._id} className='container flex mt-16'>
    <div className='parallel'>
@@ -49,6 +49,6 @@ export const AyurIngredients = () => {
 
  
     </>
-  )
+  );
 }
 
