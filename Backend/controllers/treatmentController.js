@@ -2,9 +2,22 @@ const Treatment = require('../schemas/treatments');
 
 const createTreatment = async (req, res) => {
   try {
-    const newTreatment = new Treatment(req.body);
+    const { hindiNames, englishNames, picture, medicalUses } = req.body;
+
+    const newTreatment = new Treatment({
+      hindiName: hindiNames, 
+      englishName: englishNames, 
+      picture,
+      medicalUses,
+    });
+
     const savedTreatment = await newTreatment.save();
-    res.status(201).json({ success: true, message: 'Treatment created', data: savedTreatment });
+
+    res.status(201).json({
+      success: true,
+      message: 'Treatment created',
+      data: savedTreatment,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: 'Error creating treatment' });
