@@ -22,8 +22,16 @@ cloudinary.config({
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors());
-
+// app.use(cors({
+//   origin: "http://localhost:5173",
+//   credentials: true, // Allow credentials (cookies)
+// }));
+const corsConfig = {
+  origin: true,
+  credentials: true,
+};
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig));
 
 app.use('/treatments', treatmentRoutes);
 
