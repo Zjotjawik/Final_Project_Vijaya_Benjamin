@@ -31,13 +31,13 @@
     display: inline;
   }
 
-  .ft-1 {
+  /* .ft-1 {
     display: flex-start !important;
     flex-flow: column nowrap !important;
     justify-content: start !important;
     align-items: start  !important;
   }
-  
+   */
    
   .ft-1 h3 {
     font-weight: 700;
@@ -47,6 +47,7 @@
     padding: 0.5rem 0;
     color: rgb(30, 0, 100);
     margin-left: -10px;
+    
   }
 
   .ft-1 h3 img {
@@ -92,7 +93,8 @@
   .Footer h5 {
     color: rgba(8, 8, 230, 0.871);
     font-size:25px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    /* display:inline-block; */
   }
   
   .ft-2 ul {

@@ -8,8 +8,8 @@ export const AyurIngredients = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     Axios.get('http://localhost:3000/treatments').then(res => {
-        setData(res.data)
-        console.log(res.data);
+        setData(res.data.data)
+        // console.log(res.data);
     }).catch(err => console.log(err))
 }, [])
 
@@ -22,9 +22,10 @@ export const AyurIngredients = () => {
   // }, []);
   console.log(data);
   
+
   return (
     <>
-      { data.map((item) =>  (
+      { data.length > 0 && data.map((item) => { return (
 
 <table> <div key={item._id} className='container flex mt-16'>
    <div className='parallel'>
@@ -45,7 +46,7 @@ export const AyurIngredients = () => {
    </div>
  </div>
  </table>
-))}
+)} )}
 
  
     </>
