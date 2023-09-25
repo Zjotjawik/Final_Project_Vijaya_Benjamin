@@ -1,18 +1,39 @@
 import  Axios  from 'axios';
+Axios.defaults.withCredentials = true;
 import React from 'react'
 import { useState } from 'react'
 
 
 export const Login = () => {
-   const [username,  setUsername] = useState('');
+   const [email,  setEmail] = useState('');
    const [password,  setPassword] = useState('');
 
     const Login = ()=> {
-      Axios.post('http://localhost:3000/users', {
-        username: username,
+      Axios.post('http://localhost:3000/auth/signin', {
+        email: email,
         password: password,
+      }, {
+        withCredentials: true, // Include cookies
       }).then((response)=> {
         console.log(response);
+      })
+      .catch(error => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
       });
     };
 
@@ -36,12 +57,12 @@ export const Login = () => {
                  <form >
                    <p className="mb-4"> Please login to your account   </p>
             
-                     {/* <!--Username input--> */}
+                     {/* <!--email input--> */}
                    <input type="text" 
                    className='mb-4 text-center rounded px-6 pb-2 pt-2.5 text-md font-medium text-black w-full border-solid border-2 border-gray-300 shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]' 
-                     placeholder='Username'
+                     placeholder='email'
                      onChange={(e)=> {
-                      setUsername(e.target.value);
+                      setEmail(e.target.value);
                      }} > 
                     </input>
       

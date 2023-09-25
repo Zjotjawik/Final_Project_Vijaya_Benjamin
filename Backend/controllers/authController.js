@@ -2,8 +2,16 @@ const User = require('../schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieOptions = {
+  // httpOnly: true,
+  // maxAge: 3600000,
+  // secure: false,
+  // sameSite: 'None',
   httpOnly: true,
   maxAge: 3600000,
+  domain: 'localhost',
+  sameSite: 'Lax',
+  secure: false,
+  path: '/'
 };
 
 
@@ -90,8 +98,10 @@ const signIn = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: '1h', // Token expiration time (adjust as needed)
     });
+    console.log(token)
 
     res.cookie('access_token', token, cookieOptions);
+    console.log(res.getHeader('Set-Cookie'));
 
     res.json({ message : 'Sign-in successful' });
   } catch (error) {
