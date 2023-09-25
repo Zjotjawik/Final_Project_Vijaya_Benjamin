@@ -1,26 +1,29 @@
 import React from 'react'
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import axios from 'axios';
+
 // import './App.css';
 const SearchBar = ({setResults}) => {
     const [input, setInput] = useState("");
-    const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-          .then((response) => response.json())
-          .then((json) => {
-            // console.log(json);
-            const results = json.filter((user) => {
-              return (
-                value &&
-                user &&
-                user.name &&
-                user.name.toLowerCase().includes(value)
-              );
-            });
-            // console.log(results);
-             setResults(results);
-          });
-      };
+
+    const fetchData = async (value) => {
+      // const searchValue = value.toLowerCase
+      try{
+        let {data} = await axios.get("http://localhost:3000/treatments")
+        if(data){
+          const result = data.data.filter(ele => 
+            ele.englishName.some((name) => name.toLowerCase().includes(value.toLowerCase())) ||
+            ele.hindiName.some((name) => name.toLowerCase().includes(value.toLowerCase())) ||
+            ele.medicalUses.some((use) => use.symptom.toLowerCase().includes(value.toLowerCase()))
+          )
+          console.log(result)
+          setResults(result)
+        }
+      }catch(err){
+        console.log(err)
+      }
+    };
 const handelSubmit = (e) => {
   e.preventDefault()
   console.log(input)
@@ -43,7 +46,7 @@ const handelSubmit = (e) => {
       value={input}
       onChange={(e) => handleChange(e.target.value)}
       />
-      <button type='submit'>Submit</button>
+      {/* <button type='submit'>Submit</button> */}
       </form>
     </div>
   );

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import '../styles/Navbar.css';
 import { Link, NavLink } from 'react-router-dom';
+import SearchBar from "../components/SearchBar.jsx";
+import SearchResultsList from "../components/SearchResultsList.jsx";
 // import { Dropdown } from 'bootstrap';
 import DropdownAilments from '../components/DropdownAilments';
 export const Navbar = () => {
+  const [results, setResults] = useState([]);
+  
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
   return (
@@ -23,8 +27,13 @@ export const Navbar = () => {
         <li><NavLink to="/ailments" onClick={()=> setOpenAilments((prev)=> !prev)}>Ailments</NavLink></li>
         <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
         <li><NavLink to="/suggestion form">Suggestion form</NavLink></li>
-        <li><NavLink to="/signed in">Signed in</NavLink></li>
+        <li><NavLink to="/auth/signin">Sign in</NavLink></li>
+        <li><NavLink to="/auth/signup">Sign up</NavLink></li>
     </ul>
+    <div className="search-results-container">
+    <SearchBar setResults={setResults}/> 
+    {results && results.length > 0 && <SearchResultsList results={results} />}
+    </div>
   </nav>
 
   {

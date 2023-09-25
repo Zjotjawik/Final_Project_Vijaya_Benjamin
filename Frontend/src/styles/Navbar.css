@@ -3,12 +3,13 @@
 }
 
 nav{
+    min-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: orange;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    z-index: 100 ;
 }
 
 nav .logo{
@@ -71,6 +72,16 @@ nav .menu span{
     border-radius: 0.2rem;
 }
 
+.search-results-container{
+    min-width: 25%;
+    padding-top: .5rem;
+    margin-right: .5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+ }
+ 
 @media(max-width: 480px) {
 nav .menu {
     display:flex;

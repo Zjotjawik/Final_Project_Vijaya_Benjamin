@@ -3,23 +3,42 @@ import React from 'react'
 export const AboutUs = () => {
   return (
     <>
-      <div>
-        Ayurveda:
-      Ayurveda, a natural system of medicine, originated in India more than 3,000 years ago. The term Ayurveda is derived from the Sanskrit words ayur (life) and veda (science or knowledge). Thus, Ayurveda translates to knowledge of life. Based on the idea that disease is due to an imbalance or stress in a person's consciousness, Ayurveda encourages certain lifestyle interventions and natural therapies to regain a balance between the body, mind, spirit, and the environment.
+    <div className='flex justify-content-between w-100  align-content-center text-serif text-xl '> 
+      <div >
+     <h1 className='p-2 mt-40 font-bold text-center'> About AyurEase</h1>  
+    <p> Welcome to Ayurease, your trusted source for ancient Ayurvedic wisdom and natural remedies. At Ayurease, we are dedicated to helping you find holistic solutions for common ailments through the power of Ayurveda. </p>
+    <h2>Our mission</h2>
+      <p>Our mission is to provide accessible and reliable information about Ayurvedic remedies and traditional healing practices. We aim to empower individuals to take control of their well-being by offering natural and time-tested solutions for a variety of health concerns.</p>
+     <h2>Who We Are</h2>
+     <p>Ayurease is a team of passionate individuals deeply rooted in the traditions of Ayurveda. Our experts have spent years studying and practicing Ayurvedic medicine, and we are committed to sharing this ancient knowledge with the world.</p>
+      <ul>
+        <h2>What Sets Us Apart</h2>
+        <li><span>Authentic Ayurveda: </span> We are committed to upholding the authenticity and integrity of Ayurvedic practices. Our remedies are derived from ancient texts and are backed by centuries of wisdom.
+        <li><span>Comprehensive Ailment Directory:</span>Our website provides a user-friendly platform where you can easily search for specific health concerns and discover the Ayurvedic ingredients and remedies associated with them.</li>
+</li>
+<li> <span>Community and Support:</span>Join our community of like-minded individuals who are on a journey to better health. Connect with others, ask questions, and share your experiences.</li>
+      </ul>
 
-Ayurveda treatment starts with an internal purification process, followed by a special diet, herbal remedies, massage therapy, yoga, and meditation.
-
-The concepts of universal interconnectedness, the body's constitution (prakriti), and life forces (doshas) are the primary basis of ayurvedic medicine. Goals of treatment aid the person by eliminating impurities, reducing symptoms, increasing resistance to disease, reducing worry, and increasing harmony in life. Herbs and other plants, including oils and common spices, are used extensively in Ayurvedic treatment. 
-
-In India, Ayurveda is considered a form of medical care, equal to conventional Western medicine, traditional Chinese medicine, naturopathic medicine, and homeopathic medicine. Practitioners of Ayurveda in India undergo state-recognized, institutionalized training. Currently, Ayurvedic practitioners are not licensed in the United States, and there is no national standard for Ayurvedic training or certification. However, Ayurvedic schools have gained approval as educational institutions in some states.  
-
-Ayurveda can have positive effects when used as a complementary therapy in combination with standard, conventional medical care.
-
-Many Ayurvedic materials have not been thoroughly studied in either Western or Indian research. Some of the products used in Ayurvedic medicine contain herbs, metals, minerals, or other materials that may be harmful if used improperly or without the direction of a trained practitioner. Ayurvedic medicines are regulated as dietary supplements rather than as drugs in the United States, so they are not required to meet the safety and efficacy standards for conventional medicines. These medicines can interact, or work against, the effects of Western medicines. Investigate the training and background of Ayurvedic practitioners whom you intend to use.
-
-It's important to discuss any Ayurvedic treatments that you use with your doctor. Women who are pregnant or nursing, or people who are thinking of using Ayurvedic therapy to treat a child, should consult their healthcare provider. It is important to make sure that any diagnosis of a disease or condition has been made by a healthcare provider who has substantial conventional medical training and experience with managing that disease or condition. While Ayurveda can have positive effects when used as a complementary therapy in combination with standard, conventional medical care, it should not replace standard, conventional medical care, especially when treating serious conditions. 
-      
+     
       </div>
+      
+      <div className=''>
+        <img className= 'mt-60  w-50 'src="https://www.keralatourism.org/images/ayurveda/category/large/kizhi_large1.jpg" alt="kizhi" />
+      </div>
+      </div>
+
+      <div className='container flex justify-content-space-justify-content-around'>
+        <div className='parallel w-50'>
+        <h2 className='p-2 font-bold text-center'>Our Vision</h2>
+        <p>We envision a world where individuals have access to natural and sustainable solutions for their health and well-being. We believe that Ayurveda, with its emphasis on balance and harmony, has the potential to transform lives and promote a healthier future.</p>
+       <h2>Get Started</h2>
+        <p>Exploring Ayurveda and its remedies is just a click away. Use our search feature to find the Ayurvedic ingredients and remedies that may help alleviate your health concerns. We're here to guide you on your path to wellness.</p>
+        </div>
+        <div className='parallel w-50'> 
+        {/* <img className='' src="" alt="" /> */}
+        </div>
+      </div>
+    
     </>
   
   )

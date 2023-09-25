@@ -1,0 +1,81 @@
+.container{
+
+  margin: 10px;
+  padding: 10px;
+  font-style: sans-serif;
+  font-size: 20px;
+}
+
+table, th, td {
+border: 1px solid;
+}
+
+table th{
+padding: 10px;
+}
+
+
+table {
+width: 90%;
+margin:20px;
+}
+
+/* th {
+text-align: left;
+}
+
+td {
+text-align: center;
+} */
+
+/* .parallel{
+  flex:1;
+  width: 100%;
+  /* float: left; */
+  /* padding: 20px; */
+  /* background-color: #f1f1f1; */
+  /* height: 400px;
+    font-family: Inter, sans-serif;
+    font-size: 30px; */
+  /* font-weight: 100px; */
+/* } */
+/* 
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  /* color: #333; */
+/* } */
+
+
+
+
+
+/* .medical-uses {
+  margin-left: 20px;
+} */
+
+
+/* .symptom {
+  font-weight: bold;
+  color: blueviolet;
+  background-color: cadetblue;
+} */
+
+
+
+
+/* Style for pictures (you can replace this with an actual image tag) */
+/* .picture {
+  margin-right: 40px;
+  max-width: 50%;
+  float:right;
+}
+
+ul {
+  list-style-type: none;
+
+}
+
+.description{
+  margin-top: 30px;
+} */ 
