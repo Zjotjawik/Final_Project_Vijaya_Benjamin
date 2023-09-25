@@ -48,7 +48,7 @@ export const SuggestionFormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/treatments', {
+      const response = await fetch('http://localhost:3000/treatments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
