@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
-export const Login = () => {
+export const Login = ({ setIsLoggedIn }) => {
    const [email,  setEmail] = useState('');
    const [password,  setPassword] = useState('');
 
@@ -17,6 +17,7 @@ export const Login = () => {
         withCredentials: true, // Include cookies
       }).then((response)=> {
         console.log(response);
+        setIsLoggedIn(true);
       })
       .catch(error => {
         if (error.response) {

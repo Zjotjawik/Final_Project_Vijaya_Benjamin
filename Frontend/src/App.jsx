@@ -11,24 +11,25 @@ import { Login } from "./pages/Login.jsx";
 import { SignUp } from "./pages/SignUp.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
+import { LogoutPage } from './pages/LogoutPage';
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [results, setResults] = useState([]);
   const [criteria, setCriteria] = useState();
   
   return (
     <>
         {/* <Home /> */}
-        <Navbar results={results} setResults={setResults} setCriteria={setCriteria} /> 
-    
-
+        <Navbar isLoggedIn={isLoggedIn} results={results} setResults={setResults} etCriteria={setCriteria}/>   
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/ailments" element={<Ailments />} />
       <Route path="/ingredients" element={<AyurIngredients results={results} criteria={criteria} />} />
-      <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
-      <Route path="/auth/signin" element={<Login />} />
+      <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+      <Route path="/auth/logout" element={<LogoutPage setIsLoggedIn={setIsLoggedIn} />} />
+      <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/*" element={<Error />} />
     </Routes>
 
