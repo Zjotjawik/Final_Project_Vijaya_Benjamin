@@ -15,18 +15,17 @@ import { LogoutPage } from './pages/LogoutPage';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [results, setResults] = useState([]);
+  const [criteria, setCriteria] = useState();
   
   return (
     <>
         {/* <Home /> */}
-        <Navbar isLoggedIn={isLoggedIn} results={results} setResults={setResults} /> 
-    
-
+        <Navbar isLoggedIn={isLoggedIn} results={results} setResults={setResults} etCriteria={setCriteria}/>   
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/ailments" element={<Ailments />} />
-      <Route path="/ingredients" element={<AyurIngredients results={results} />} />
+      <Route path="/ingredients" element={<AyurIngredients results={results} criteria={criteria} />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/auth/logout" element={<LogoutPage setIsLoggedIn={setIsLoggedIn} />} />

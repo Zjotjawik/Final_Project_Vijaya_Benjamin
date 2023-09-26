@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 
 // import './App.css';
-const SearchBar = ({setResults}) => {
+const SearchBar = ({setCriteria, setResults, results}) => {
     const [input, setInput] = useState("");
 
     const fetchData = async (value) => {
@@ -14,6 +14,9 @@ const SearchBar = ({setResults}) => {
         let {data} = await axios.get("http://localhost:3000/treatments")
         console.log(data)
         if(data){
+
+
+          // OLDER VERSION
           const result = data.data.filter(ele => 
             ele.englishName.some((name) => name?.toLowerCase().includes(value.toLowerCase())) ||
             ele.hindiName.some((name) => name?.toLowerCase().includes(value.toLowerCase())) ||
@@ -22,6 +25,44 @@ const SearchBar = ({setResults}) => {
 
           console.log(result)
           setResults(result)
+
+          // NEWER VERSION
+          const resultWithCriteria = data.data.map(ele => {
+            const foundIn = []
+            if(ele.englishName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
+              foundIn.push("English Name")
+            }
+            if(ele.hindiName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
+              foundIn.push("Hindi Name")
+            }
+            if(ele.medicalUses.some((use) => use?.symptom?.toLowerCase().includes(value.toLowerCase()))){
+              foundIn.push("Medical Uses")
+            }
+            return {data: ele, foundIn}
+          })
+
+          const filteredResults = resultWithCriteria.filter(result => result.foundIn.length > 0)
+
+          const longestFoundIn = filteredResults.reduce((longest, result) => {
+            if (result.foundIn.length > longest.length) {
+              return result.foundIn;
+            }
+            return longest;
+          }, []);
+          
+          console.log(longestFoundIn);
+
+          // console.log(filteredResults)
+          // setResults(filteredResults)
+
+          // console.log({value, results: filteredResults})
+          setCriteria({
+            criteria: longestFoundIn[0],
+            search: value
+          })
+
+
+
         }
       }catch(err){
         console.log(err)

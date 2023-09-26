@@ -9,7 +9,7 @@ import {Logout} from './Logout.jsx';
 
 
 
-export const Navbar = ({isLoggedIn, results, setResults}) => {
+export const Navbar = ({isLoggedIn, results, setResults, setCriteria}) => {
   // const [results, setResults] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
@@ -46,7 +46,7 @@ export const Navbar = ({isLoggedIn, results, setResults}) => {
         )}
     </ul>
     <div className="search-results-container">
-    <SearchBar setResults={setResults}/> 
+    <SearchBar setResults={setResults} setCriteria={setCriteria}/> 
     {results.length > 0 && <SearchResultsList results={results} />}
     </div>
   </nav>
