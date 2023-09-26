@@ -25,7 +25,7 @@ export const Navbar = ({results, setResults}) => {
         <li><NavLink to="/about">About us</NavLink></li>
         <li><NavLink to="/ailments" onClick={()=> setOpenAilments((prev)=> !prev)}>Ailments</NavLink></li>
         <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
-        <li><NavLink to="/suggestion form">Suggestion form</NavLink></li>
+        <li><NavLink to="/suggestion-form">Suggestion form</NavLink></li>
         <li><NavLink to="/auth/signin">Sign in</NavLink></li>
         <li><NavLink to="/auth/signup">Sign up</NavLink></li>
     </ul>
