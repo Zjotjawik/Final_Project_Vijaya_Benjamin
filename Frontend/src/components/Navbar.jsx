@@ -5,13 +5,17 @@ import SearchBar from "../components/SearchBar.jsx";
 import SearchResultsList from "../components/SearchResultsList.jsx";
 // import { Dropdown } from 'bootstrap';
 import DropdownAilments from '../components/DropdownAilments';
-export const Navbar = ({results, setResults}) => {
+import {Logout} from './Logout.jsx';
+
+
+
+export const Navbar = ({isLoggedIn, results, setResults}) => {
   // const [results, setResults] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
+
   return (
     <>
-   
   <nav >
     {/* <Link to="/" className="logo"><img src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="logo" /></Link> */}
     <Link to="/" className="title"><img className="logo" src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="logo" />AyurEase<span>Your Guide to Natural Healing</span></Link>
@@ -25,9 +29,21 @@ export const Navbar = ({results, setResults}) => {
         <li><NavLink to="/about">About us</NavLink></li>
         <li><NavLink to="/ailments" onClick={()=> setOpenAilments((prev)=> !prev)}>Ailments</NavLink></li>
         <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
-        <li><NavLink to="/suggestion-form">Suggestion form</NavLink></li>
-        <li><NavLink to="/auth/signin">Sign in</NavLink></li>
-        <li><NavLink to="/auth/signup">Sign up</NavLink></li>
+        {isLoggedIn && <li><NavLink to="/suggestion-form">Suggestion Form</NavLink></li>}
+        {isLoggedIn ? (
+          <li><NavLink to="/auth/signin">Logged in</NavLink></li>
+        ) : (
+          <li><NavLink to="/auth/signin">Log in</NavLink></li>
+        )}
+        {isLoggedIn ? (
+        <>
+        {/* <li><div onClick={Login.handleLogout}>Logout</div></li> */}
+        {/* <li><Logout onClick={handleLogout}/>Here</li> */}
+        <li> <Logout/> </li>
+        </>
+        ) : (
+        <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
+        )}
     </ul>
     <div className="search-results-container">
     <SearchBar setResults={setResults}/> 
