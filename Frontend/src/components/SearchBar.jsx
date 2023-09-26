@@ -9,14 +9,17 @@ const SearchBar = ({setResults}) => {
 
     const fetchData = async (value) => {
       // const searchValue = value.toLowerCase
+      console.log(value);
       try{
         let {data} = await axios.get("http://localhost:3000/treatments")
+        console.log(data)
         if(data){
           const result = data.data.filter(ele => 
-            ele.englishName.some((name) => name.toLowerCase().includes(value.toLowerCase())) ||
-            ele.hindiName.some((name) => name.toLowerCase().includes(value.toLowerCase())) ||
-            ele.medicalUses.some((use) => use.symptom.toLowerCase().includes(value.toLowerCase()))
+            ele.englishName.some((name) => name?.toLowerCase().includes(value.toLowerCase())) ||
+            ele.hindiName.some((name) => name?.toLowerCase().includes(value.toLowerCase())) ||
+            ele.medicalUses.some((use) => use?.symptom?.toLowerCase().includes(value.toLowerCase()))
           )
+
           console.log(result)
           setResults(result)
         }
@@ -24,21 +27,26 @@ const SearchBar = ({setResults}) => {
         console.log(err)
       }
     };
-const handelSubmit = (e) => {
+const handleSubmit = (e) => {
   e.preventDefault()
-  console.log(input)
+  
+  // setInput(e.target.value);
+  // console.log(value);
+   fetchData(input);
+  // console.log(input)
 }
 
       const handleChange = (value) => {
         setInput(value);
-        fetchData(value);
+        console.log(value);
+        // fetchData(value);
       };
 
       
   return (
     <div  className="input-wrapper">
        <FaSearch id="search-icon" />
-       <form onSubmit={handelSubmit}>
+       <form onSubmit={ handleSubmit}>
       <input
       name="search-name"
       type="text"
@@ -53,3 +61,11 @@ const handelSubmit = (e) => {
 };
 
 export default SearchBar
+
+ // setData(prev => [...prev, filteredHindi])
+    // https://www.developerway.com/posts/debouncing-in-react
+// const Input = () => {
+//   const onChange = (e) => {
+//     // send data from input field to the backend here
+//     // will be triggered 500 ms after the user stopped typing
+//   }

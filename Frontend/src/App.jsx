@@ -8,25 +8,25 @@ import { Error } from "./pages/Error.jsx";
 import { Ailments } from "./pages/Ailments.jsx";
 import { AyurIngredients } from "./pages/AyurIngredients.jsx";
 import { Login } from "./pages/Login.jsx";
-import { Registration } from "./pages/Registration.jsx";
+import { SignUp } from "./pages/SignUp.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
 function App() {
-  // const [count, setCount] = useState(0)
+  const [results, setResults] = useState([]);
   
   return (
     <>
         {/* <Home /> */}
-        <Navbar/> 
+        <Navbar results={results} setResults={setResults} /> 
     
 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/ailments" element={<Ailments />} />
-      <Route path="/ingredients" element={<AyurIngredients />} />
+      <Route path="/ingredients" element={<AyurIngredients results={results} />} />
+      <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
-      <Route path="/auth/signup" element={<Registration />} />
       <Route path="/auth/signin" element={<Login />} />
       <Route path="/*" element={<Error />} />
     </Routes>
