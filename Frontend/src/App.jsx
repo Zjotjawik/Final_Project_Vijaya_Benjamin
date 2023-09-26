@@ -13,18 +13,19 @@ import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
 function App() {
   const [results, setResults] = useState([]);
+  const [criteria, setCriteria] = useState();
   
   return (
     <>
         {/* <Home /> */}
-        <Navbar results={results} setResults={setResults} /> 
+        <Navbar results={results} setResults={setResults} setCriteria={setCriteria} /> 
     
 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/ailments" element={<Ailments />} />
-      <Route path="/ingredients" element={<AyurIngredients results={results} />} />
+      <Route path="/ingredients" element={<AyurIngredients results={results} criteria={criteria} />} />
       <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login />} />

@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar.jsx";
 import SearchResultsList from "../components/SearchResultsList.jsx";
 // import { Dropdown } from 'bootstrap';
 import DropdownAilments from '../components/DropdownAilments';
-export const Navbar = ({results, setResults}) => {
+export const Navbar = ({results, setResults, setCriteria}) => {
   // const [results, setResults] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
@@ -30,7 +30,7 @@ export const Navbar = ({results, setResults}) => {
         <li><NavLink to="/auth/signup">Sign up</NavLink></li>
     </ul>
     <div className="search-results-container">
-    <SearchBar setResults={setResults}/> 
+    <SearchBar setResults={setResults} setCriteria={setCriteria}/> 
     {results.length > 0 && <SearchResultsList results={results} />}
     </div>
   </nav>

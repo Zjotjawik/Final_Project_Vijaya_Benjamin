@@ -5,7 +5,7 @@ import Axios from 'axios';
 import AllData from '../components/AllData.jsx';
 import ResultsData from '../components/ResultsData.jsx';
 
-export const AyurIngredients = ({results}) => {
+export const AyurIngredients = ({results, criteria}) => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -50,7 +50,7 @@ export const AyurIngredients = ({results}) => {
  </table>
 )} )} */}
 
- {results.length > 0 ? <ResultsData results={results} /> : <AllData /> }
+ {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData /> }
     </>
   );
 }
