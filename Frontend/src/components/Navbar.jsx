@@ -5,9 +5,8 @@ import SearchBar from "../components/SearchBar.jsx";
 import SearchResultsList from "../components/SearchResultsList.jsx";
 // import { Dropdown } from 'bootstrap';
 import DropdownAilments from '../components/DropdownAilments';
-export const Navbar = () => {
-  const [results, setResults] = useState([]);
-  
+export const Navbar = ({results, setResults}) => {
+  // const [results, setResults] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
   return (
@@ -32,7 +31,7 @@ export const Navbar = () => {
     </ul>
     <div className="search-results-container">
     <SearchBar setResults={setResults}/> 
-    {results && results.length > 0 && <SearchResultsList results={results} />}
+    {results.length > 0 && <SearchResultsList results={results} />}
     </div>
   </nav>
 

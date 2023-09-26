@@ -1,11 +1,7 @@
-import React from 'react'
-import '../styles/AyurIngredients.css';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import AllData from '../components/AllData.jsx';
-import ResultsData from '../components/ResultsData.jsx';
 
-export const AyurIngredients = ({results}) => {
+const AllData = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -15,21 +11,14 @@ export const AyurIngredients = ({results}) => {
     }).catch(err => console.log(err))
 }, [])
 
-  // useEffect(() => {
-  //   // Replace 'apiEndpoint' with the actual URL of your API endpoint
-  //  fetch('http://localhost:3000/treatments')
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.error('Error fetching data: ', error));
-  // }, []);
-  // console.log(data);
+//   console.log(data);
   
 
   return (
     <>
-      {/* { data.length > 0 && data.map((item) => { return (
+      { data.length > 0 && data.map((item) => { return (
 
-<table> <div key={item._id} className='container flex pt-16'>
+<table> <div key={item._id} className='container flex '>
    <div className='parallel'>
   <tr> <th><h2 className='hindi-names'>Hindi Names: {item.hindiName.join(', ')}</h2> </th> 
   <th> <h2 className='english-names'>English Names: {item.englishName.join(', ')}</h2></th>  
@@ -48,10 +37,8 @@ export const AyurIngredients = ({results}) => {
    </div>
  </div>
  </table>
-)} )} */}
-
- {results.length > 0 ? <ResultsData results={results} /> : <AllData /> }
+)} )}
     </>
   );
 }
-
+export default AllData;

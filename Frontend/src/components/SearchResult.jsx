@@ -1,11 +1,17 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const SearchResult = ({result}) => {
-  const {englishName,hindiName,medicalUses}=result
+  const {englishName,hindiName,medicalUses} = result;
+console.log(result);
+
+const navigateTo = useNavigate();
+    const redirectToAyurIngredient = () => {
+      navigateTo('/ingredients');
+    };
   return (
     <div className="search-result"
-    onClick={(e) => alert(`You selected ${result}!`)}>
+    onClick={redirectToAyurIngredient}>
       <ul>
       {englishName?.map((e, i) => {
         return  <li key={i} >
@@ -16,10 +22,11 @@ const SearchResult = ({result}) => {
           </li>;
       })}
       </ul>
+
      
     </div>
   )
 }
 
 export default SearchResult
-// alert(`You selected ${result}!`)
+//  onClick={(e) => alert(`You selected ${result}!`)}
