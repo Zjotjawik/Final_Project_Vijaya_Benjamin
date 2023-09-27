@@ -7,13 +7,13 @@ import ResultsData from '../components/ResultsData.jsx';
 
 export const AyurIngredients = ({results, criteria}) => {
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    Axios.get('http://localhost:3000/treatments').then(res => {
-        setData(res.data.data)
-        // console.log(res.data);
-    }).catch(err => console.log(err))
-}, [])
+//   const [data, setData] = useState([]);
+
+//   useEffect(() => {
+//     Axios.get('http://localhost:3000/treatments').then(res => {
+//         setData(res.data.data)
+//     }).catch(err => console.log(err))
+// }, [])
 
   // useEffect(() => {
   //   // Replace 'apiEndpoint' with the actual URL of your API endpoint

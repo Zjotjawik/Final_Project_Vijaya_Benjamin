@@ -10,6 +10,7 @@ nav{
     background-color: orange;
     position: fixed;
     z-index: 100 ;
+    
 }
 
 nav .logo{
