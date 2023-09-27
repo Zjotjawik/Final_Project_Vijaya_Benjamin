@@ -11,8 +11,8 @@ import { Login } from "./pages/Login.jsx";
 import { SignUp } from "./pages/SignUp.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
-import { LogoutPage } from './pages/LogoutPage';
 function App() {
+  // TO DO change for middleaware checking component
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [results, setResults] = useState([]);
   const [criteria, setCriteria] = useState();
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
         {/* <Home /> */}
-        <Navbar isLoggedIn={isLoggedIn} results={results} setResults={setResults} etCriteria={setCriteria}/>   
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} results={results} setResults={setResults} etCriteria={setCriteria}/>   
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
@@ -28,7 +28,6 @@ function App() {
       <Route path="/ingredients" element={<AyurIngredients results={results} criteria={criteria} />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-      <Route path="/auth/logout" element={<LogoutPage setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/*" element={<Error />} />
     </Routes>

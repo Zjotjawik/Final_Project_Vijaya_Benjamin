@@ -1,18 +1,53 @@
 import React, { useState } from 'react'
 import '../styles/Navbar.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import SearchBar from "../components/SearchBar.jsx";
 import SearchResultsList from "../components/SearchResultsList.jsx";
 // import { Dropdown } from 'bootstrap';
 import DropdownAilments from '../components/DropdownAilments';
-import {Logout} from './Logout.jsx';
+import Axios from 'axios';
 
 
 
-export const Navbar = ({isLoggedIn, results, setResults, setCriteria}) => {
+export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLoggedIn}) => {
   // const [results, setResults] = useState([]);
+    const navigate = useNavigate()
     const [menuOpen, setMenuOpen] = useState(false);
     const [openAilments, setOpenAilments] = useState(false);
+
+    const handleLogout = () => {
+      Axios.delete('http://localhost:3000/auth/logout', {
+        withCredentials: true, // Include cookies
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            setIsLoggedIn(false); // Set isLoggedIn to false upon successful logout
+            navigate("/")
+          } else {
+            console.error('Logout failed');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+          console.log(error.config);
+        });
+    };
+  
 
   return (
     <>
@@ -41,7 +76,7 @@ export const Navbar = ({isLoggedIn, results, setResults, setCriteria}) => {
         <>
         {/* <li><div onClick={Login.handleLogout}>Logout</div></li> */}
         {/* <li><Logout onClick={handleLogout}/>Here</li> */}
-        <li> <Logout/> </li>
+        <li> <button onClick={handleLogout}>Log out</button><button/> </li>
         </>
         ) : (
         <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
