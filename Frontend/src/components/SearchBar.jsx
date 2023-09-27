@@ -21,8 +21,7 @@ const SearchBar = ({ setCriteria, setResults, results }) => {
             ele.medicalUses.some((use) =>
               use?.symptom?.toLowerCase().includes(value.toLowerCase())
             )
-        );
-
+            );
         setResults(result);
 
         const resultWithCriteria = data.data.map((ele) => {
@@ -81,7 +80,6 @@ const SearchBar = ({ setCriteria, setResults, results }) => {
 
   const handleChange = (value) => {
     setInput(value);
-    console.log(value);
     // fetchData(value);
   };
 

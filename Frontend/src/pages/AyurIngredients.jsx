@@ -24,7 +24,6 @@ export const AyurIngredients = ({results, criteria}) => {
   // }, []);
   // console.log(data);
   
-
   return (
     <>
       {/* { data.length > 0 && data.map((item) => { return (
@@ -50,7 +49,7 @@ export const AyurIngredients = ({results, criteria}) => {
  </table>
 )} )} */}
 
- {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData /> }
+ {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData results={results} /> }
     </>
   );
 }
