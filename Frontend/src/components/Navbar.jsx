@@ -23,7 +23,9 @@ export const Navbar = ({results, setResults, setCriteria}) => {
     <ul className={menuOpen ? "open" : ""}>
         <li><NavLink to="/" >Home</NavLink></li>
         <li><NavLink to="/about">About us</NavLink></li>
-        <li><NavLink to="/ailments" onClick={()=> setOpenAilments((prev)=> !prev)}>Ailments</NavLink></li>
+        <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink to="/ailments" >Ailments</NavLink>
+            {openAilments && <DropdownAilments />}
+        </li>
         <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
         <li><NavLink to="/suggestion-form">Suggestion form</NavLink></li>
         <li><NavLink to="/auth/signin">Sign in</NavLink></li>
@@ -35,9 +37,7 @@ export const Navbar = ({results, setResults, setCriteria}) => {
     </div>
   </nav>
 
-  {
-    openAilments && <DropdownAilments />
-  }
+ 
 
   </>
   )
