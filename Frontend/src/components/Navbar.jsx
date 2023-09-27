@@ -27,7 +27,9 @@ export const Navbar = ({isLoggedIn, results, setResults, setCriteria}) => {
     <ul className={menuOpen ? "open" : ""}>
         <li><NavLink to="/" >Home</NavLink></li>
         <li><NavLink to="/about">About us</NavLink></li>
-        <li><NavLink to="/ailments" onClick={()=> setOpenAilments((prev)=> !prev)}>Ailments</NavLink></li>
+        <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink to="/ailments" >Ailments</NavLink>
+            {openAilments && <DropdownAilments />}
+        </li>
         <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
         {isLoggedIn && <li><NavLink to="/suggestion-form">Suggestion Form</NavLink></li>}
         {isLoggedIn ? (
@@ -51,9 +53,7 @@ export const Navbar = ({isLoggedIn, results, setResults, setCriteria}) => {
     </div>
   </nav>
 
-  {
-    openAilments && <DropdownAilments />
-  }
+ 
 
   </>
   )

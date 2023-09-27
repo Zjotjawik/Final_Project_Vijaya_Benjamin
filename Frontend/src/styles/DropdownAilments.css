@@ -1,0 +1,30 @@
+.ailments-submenu {
+    width: 10rem;
+    position: absolute;
+    top: 100px;
+    list-style: none;
+    text-align: start;
+    /* min-height:160px ; */
+  }
+  
+  .ailments-submenu li {
+    background: rgb(167, 178, 178);
+    cursor: pointer;
+  }
+  
+  .ailments-submenu li a:hover {
+    background: rgb(169, 177, 177);
+  }
+  
+  .ailments-submenu.clicked {
+    display: none;
+  }
+  
+  .submenu-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 16px;
+  }

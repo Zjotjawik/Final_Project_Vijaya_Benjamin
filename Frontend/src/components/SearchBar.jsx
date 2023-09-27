@@ -4,8 +4,13 @@ import { FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 
 // import './App.css';
-const SearchBar = ({setCriteria, setResults, results}) => {
+const SearchBar = ({setResults}) => {
+// const SearchBar = ({setCriteria, setResults, results}) => {
     const [input, setInput] = useState("");
+
+    // RESEARCH VERSION
+
+    // 
 
     const fetchData = async (value) => {
       // const searchValue = value.toLowerCase
@@ -27,40 +32,41 @@ const SearchBar = ({setCriteria, setResults, results}) => {
           setResults(result)
 
           // NEWER VERSION
-          const resultWithCriteria = data.data.map(ele => {
-            const foundIn = []
-            if(ele.englishName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
-              foundIn.push("English Name")
-            }
-            if(ele.hindiName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
-              foundIn.push("Hindi Name")
-            }
-            if(ele.medicalUses.some((use) => use?.symptom?.toLowerCase().includes(value.toLowerCase()))){
-              foundIn.push("Medical Uses")
-            }
-            return {data: ele, foundIn}
-          })
+          // const resultWithCriteria = data.data.map(ele => {
+          //   const foundIn = []
+          //   if(ele.englishName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
+          //     foundIn.push("English Name")
+          //   }
+          //   if(ele.hindiName.some((name) => name?.toLowerCase().includes(value.toLowerCase()))){
+          //     foundIn.push("Hindi Name")
+          //   }
+          //   if(ele.medicalUses.some((use) => use?.symptom?.toLowerCase().includes(value.toLowerCase()))){
+          //     foundIn.push("Medical Uses")
+          //   }
+          //   return {data: ele, foundIn}
+          // })
 
-          const filteredResults = resultWithCriteria.filter(result => result.foundIn.length > 0)
+          // const filteredResults = resultWithCriteria.filter(result => result.foundIn.length > 0)
 
-          const longestFoundIn = filteredResults.reduce((longest, result) => {
-            if (result.foundIn.length > longest.length) {
-              return result.foundIn;
-            }
-            return longest;
-          }, []);
+          // const longestFoundIn = filteredResults.reduce((longest, result) => {
+          //   if (result.foundIn.length > longest.length) {
+          //     return result.foundIn;
+          //   }
+          //   return longest;
+          // }, []);
           
-          console.log(longestFoundIn);
+          // console.log(longestFoundIn);  // ---New version ---
 
           // console.log(filteredResults)
           // setResults(filteredResults)
 
           // console.log({value, results: filteredResults})
-          setCriteria({
-            criteria: longestFoundIn[0],
-            search: value
-          })
-
+          //--- new version---
+          // setCriteria({
+          //   criteria: longestFoundIn[0],
+          //   search: value
+          // })
+ // NEWER VERSION
 
 
         }
@@ -72,7 +78,6 @@ const handleSubmit = (e) => {
   e.preventDefault()
   
   // setInput(e.target.value);
-  // console.log(value);
    fetchData(input);
   // console.log(input)
 }

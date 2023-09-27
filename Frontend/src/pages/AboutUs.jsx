@@ -3,7 +3,7 @@ import React from 'react'
 export const AboutUs = () => {
   return (
     <>
-    <div className='flex justify-content-between w-100  align-content-center text-serif text-xl '> 
+    <div className='flex justify-content-between w-100  align-content-center text-serif text-xl text-center ml-20'> 
       <div className='w-50 ' >
      <h1 className='p-2 mt-40 font-bold text-center'> About AyurEase</h1>  
     <p> Welcome to Ayurease, your trusted source for ancient Ayurvedic wisdom and natural remedies. At Ayurease, we are dedicated to helping you find holistic solutions for common ailments through the power of Ayurveda. </p>
@@ -22,9 +22,9 @@ export const AboutUs = () => {
 
       </div>
       
-      <div className='w-50'>
+      {/* <div className='w-50'>
         <img className= 'mt-60 h-60 w-120 'src="https://www.keralatourism.org/images/ayurveda/category/large/kizhi_large1.jpg" alt="kizhi" />
-      </div>
+      </div> */}
       </div>
 
       <div className='container flex justify-content-space-justify-content-around'>
