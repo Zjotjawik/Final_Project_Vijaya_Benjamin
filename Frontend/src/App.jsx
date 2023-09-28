@@ -20,7 +20,7 @@ function App() {
   return (
     <>
         {/* <Home /> */}
-        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} results={results} setResults={setResults} etCriteria={setCriteria}/>   
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} results={results} setResults={setResults} setCriteria={setCriteria}/>   
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
