@@ -11,11 +11,14 @@ import { Login } from "./pages/Login.jsx";
 import { SignUp } from "./pages/SignUp.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
+import { ForgotPassword } from './pages/ForgotPassword';
 function App() {
   // TO DO change for middleaware checking component
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [results, setResults] = useState([]);
   const [criteria, setCriteria] = useState();
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   
   return (
     <>
@@ -29,6 +32,7 @@ function App() {
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/auth/signup" element={<SignUp />} />
+      <Route path="/auth/forgot-password" element={<ForgotPassword email={email} setEmail={setEmail} message={message} setMessage={setMessage}/>} /> 
       <Route path="/*" element={<Error />} />
     </Routes>
 

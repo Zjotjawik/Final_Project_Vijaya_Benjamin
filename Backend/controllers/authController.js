@@ -1,6 +1,7 @@
 const User = require('../schemas/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 const cookieOptions = {
   // httpOnly: true,
   // maxAge: 3600000,
@@ -13,6 +14,14 @@ const cookieOptions = {
   secure: false,
   path: '/'
 };
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.NODEMAILUSER, // Your email address
+    pass: process.env.NODEMAILPASS, // Your email password or app-specific password
+  },
+});
 
 
 const handleErrors = (error) => {
@@ -78,6 +87,7 @@ const signUp = async (req, res) => {
   }
 };
 
+
 const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -110,6 +120,7 @@ const signIn = async (req, res) => {
   }
 };
 
+
 const logout = (req, res) => {
 
   // Clear the 'access_token' cookie
@@ -119,4 +130,62 @@ const logout = (req, res) => {
   res.json({ message: 'User logged out' });
 };
 
-module.exports = { signUp, signIn, logout };
+
+const forgotPassword = (req, res) => {
+  const { email } = req.body;
+
+  // Check if the user with this email exists in your database
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Generate a unique token with a short expiration time (e.g., 1 hour)
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    // Send a password reset email with the token link
+    const resetLink = `${process.env.HOSTADDRESS}/auth/reset-password/${token}`;
+
+    // Email content
+    const mailOptions = {
+      from: process.env.NODEMAILUSER, // Sender email address
+      to: email, // Recipient email address
+      subject: 'Password Reset Request',
+      html: `
+        <p>You have requested a password reset for your account.</p>
+        <p>Please click the following link to reset your password:</p>
+        <a href="${resetLink}">${resetLink}</a>
+        <p>If you did not request this reset, please ignore this email.</p>
+      `,
+    };
+
+    // Send the email using Nodemailer
+    transporter.sendMail(mailOptions, (error) => {
+      if (error) {
+        console.error('Error sending password reset email:', error);
+        return res.status(500).json({ error: 'Email could not be sent' });
+      }
+      
+      res.json({ message: 'Password reset email sent' });
+    });
+  });
+};
+
+
+const resetPassword = (req, res) => {
+  const { token } = req.params;
+
+  // Verify the token and check its expiration
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ error: 'Invalid or expired token' });
+    }
+
+    // Allow the user to reset the password here
+
+    // Redirect to a password reset page with the token
+    res.redirect(`${process.env.HOSTADDRESS}/auth/reset-password/${token}`);
+  });
+};
+
+module.exports = { signUp, signIn, logout, forgotPassword, resetPassword };
