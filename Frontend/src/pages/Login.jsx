@@ -18,6 +18,7 @@ export const Login = ({ setIsLoggedIn }) => {
       }).then((response)=> {
         console.log(response);
         setIsLoggedIn(true);
+        navigateTo('/');
       })
       .catch(error => {
         if (error.response) {
