@@ -52,9 +52,9 @@ const ResultsData = ({ results, criteria }) => {
       {results.length > 0 &&
         results.map((item) => {
           return (
-            <table>
+            <table key={item._id}>
               {/* {" "} */}
-              <div key={item._id} className="container flex ">
+              <div  className="container flex ">
                 <div className="parallel">
                   <tr>
                     {/* {" "} */}
@@ -78,14 +78,16 @@ const ResultsData = ({ results, criteria }) => {
                   <ul className="text-left">
                     {
                     criteria.criteria == "Medical Uses" ?
-                     item.medicalUses
-                    //  TO DO FILTER 
-                      .filter((use) =>
-                      use &&
-                      use.symptom &&
-                      use.symptom.includes(criteria.search)
-                      )
-                      .map((use, index) => (
+                    //  item.medicalUses
+                    // //  TO DO FILTER 
+                    //   .filter((use) =>
+                    //   // use &&
+                    //   // use.symptom &&
+                    //   use.symptom.includes(criteria.search)
+                    //   )
+                    item.medicalUses?.filter((use) =>
+    use.symptom?.toLowerCase().includes(criteria.search?.toLowerCase())
+    )?.map((use, index) => (
                       <li key={index}>
                         <strong className="symptom">Symptom:</strong>
                         {use.symptom}

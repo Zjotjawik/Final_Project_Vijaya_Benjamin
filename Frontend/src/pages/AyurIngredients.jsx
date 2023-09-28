@@ -34,7 +34,6 @@ export const AyurIngredients = ({results, criteria}) => {
   // }, []);
   // console.log(data);
   
-
   return (
     <>
       {/* { data.length > 0 && data.map((item) => { return (
@@ -59,6 +58,10 @@ export const AyurIngredients = ({results, criteria}) => {
  </div>
  </table>
 )} )} */}
+<<<<<<< HEAD
+
+ {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData results={results} /> }
+=======
  {isLoading ? (
       <LoadingSpinner />
     ) : (
@@ -69,6 +72,7 @@ export const AyurIngredients = ({results, criteria}) => {
           <AllData />
   )}
  
+>>>>>>> 7b18e300a1c9c0b192f46dd8ef6e9d4ff12038d1
     </>
   )
 }
