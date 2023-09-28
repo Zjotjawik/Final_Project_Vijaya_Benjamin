@@ -29,7 +29,11 @@ module.exports = Treatment;
 //   "englishName": "MongoDB",
 //   "picture": "www.guacvsdousdegv.vasivubsa/bktacsfcu",
 //   "medicalUses": [
-//       { "symptom": "Fever", "description": "temperatures between 40 and 45 degrees" },  
+//       { 
+//          "symptom": "Fever",
+//          "description": "temperatures between 40 and 45 degrees",
+//          "img": "www.cloudinary.com/yourprojecturi/query" 
+//        },  
 //       { "symptom": "Nausea",  "description": "Lost of consiusness" }
 //   ]
 // }

@@ -111,8 +111,12 @@ const signIn = async (req, res) => {
 };
 
 const logout = (req, res) => {
+
+  // Clear the 'access_token' cookie
   res.clearCookie('access_token');
-  res.json({  message: 'User logged out' });
+
+  // Send a JSON response
+  res.json({ message: 'User logged out' });
 };
 
 module.exports = { signUp, signIn, logout };

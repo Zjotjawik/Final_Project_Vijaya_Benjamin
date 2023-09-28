@@ -4,16 +4,26 @@ import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import AllData from '../components/AllData.jsx';
 import ResultsData from '../components/ResultsData.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
+
 
 export const AyurIngredients = ({results, criteria}) => {
 
-//   const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-//   useEffect(() => {
-//     Axios.get('http://localhost:3000/treatments').then(res => {
-//         setData(res.data.data)
-//     }).catch(err => console.log(err))
-// }, [])
+  useEffect(() => {
+    Axios.get('http://localhost:3000/treatments')
+      .then((res) => {
+        setData(res.data.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  }, []);
+  
 
   // useEffect(() => {
   //   // Replace 'apiEndpoint' with the actual URL of your API endpoint
@@ -48,9 +58,24 @@ export const AyurIngredients = ({results, criteria}) => {
  </div>
  </table>
 )} )} */}
+<<<<<<< HEAD
 
  {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData results={results} /> }
+=======
+ {isLoading ? (
+      <LoadingSpinner />
+    ) : (
+      <>
+        {results.length > 0 ? (
+          <ResultsData results={results} criteria={criteria} />
+        ) : (
+          <AllData />
+  )}
+ 
+>>>>>>> 7b18e300a1c9c0b192f46dd8ef6e9d4ff12038d1
     </>
-  );
+  )
 }
+</>
+)}
 

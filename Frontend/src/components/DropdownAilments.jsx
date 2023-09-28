@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { ailmentsDropdown } from './Navitems'
+import { ailmentsDropdown } from './NavItems'
 import { Link } from 'react-router-dom'
 import '../styles/DropdownAilments.css'
 
