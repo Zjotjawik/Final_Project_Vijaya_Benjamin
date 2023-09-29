@@ -16,7 +16,7 @@ const cookieOptions = {
 };
 
 const transporter = nodemailer.createTransport({
-  service: 'Gmail',
+  service: 'gmail',
   auth: {
     user: process.env.NODEMAILUSER, // Your email address
     pass: process.env.NODEMAILPASS, // Your email password or app-specific password
