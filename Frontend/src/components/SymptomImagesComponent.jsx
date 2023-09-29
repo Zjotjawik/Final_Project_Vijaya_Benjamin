@@ -9,7 +9,11 @@ export const SymptomImagesComponent = () => {
   useEffect(() => {
     Axios.get('http://localhost:3000/treatments')
       .then((res) => {
-        setData(res.data.data);
+        // Filter the data to include only entries with ailment and picture fields
+        const filteredData = res.data.data.filter((item) => {
+          return item.ailment && item.picture;
+        });
+        setData(filteredData);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -26,9 +30,9 @@ export const SymptomImagesComponent = () => {
       ) : (
         <div className='symptom-images'>
           {data.map((item) => (
-            <div key={item._id} className='symptom-image'>
-              <h3 className='symptom'>{item.symptom}</h3>
-              <img src={item.picture} alt={item.symptom} />
+            <div key={item._id.$oid} className='symptom-image'>
+              <h3 className='ailment'>{item.ailment}</h3>
+              <img src={item.picture} alt={item.ailment} />
             </div>
           ))}
         </div>
