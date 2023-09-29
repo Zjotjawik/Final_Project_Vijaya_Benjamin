@@ -1,13 +1,14 @@
 import React from 'react'
 import ImageSliderAuto from '../components/ImageSliderAuto.jsx';
 import {CardsContainer } from '../components/CardsContainer.jsx';
-export function Home() {
+export function Home({data}) {
 
   
   return (
     <>
    <ImageSliderAuto />
-   <CardsContainer/>
+   <CardsContainer data={data} />
+   
     </>
   );
 }

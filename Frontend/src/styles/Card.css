@@ -9,7 +9,7 @@
     height: fit-content;
   }
   
-  .card-img {
+  .card-picture {
     width: 100%;
     border-radius: 1rem 1rem 0 0;
     height:180px;
@@ -18,10 +18,15 @@
   
   .card-title {
     margin: 0.5rem 5%;
+    font-size: bold;
   }
 
-  .card-ailment{
+  .card-symptom{
     margin: 0.5rem 5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
   }
   
   .card-description {
@@ -40,12 +45,14 @@
     background-color: orange;
     color: white;
     text-decoration: none;
-    margin: 0.5rem 0.5rem;
+    margin: 4rem 4rem;
+    
   }
 
-  .card .col{
+  .cardslide-container .col{
     display: flex;
     justify-content: space-around;
+  
   }
  
 

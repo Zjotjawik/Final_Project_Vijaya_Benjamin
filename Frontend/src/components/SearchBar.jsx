@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 
 const SearchBar = ({ setCriteria, setResults, results }) => {
   const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
   const fetchData = async (value) => {
     try {
@@ -74,8 +76,10 @@ const SearchBar = ({ setCriteria, setResults, results }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setInput(e.target.value);
     fetchData(input);
+    setTimeout(() => {
+      navigate('/ingredients')
+    }, 150);
   };
 
   const handleChange = (value) => {

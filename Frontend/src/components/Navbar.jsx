@@ -87,6 +87,7 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
               </li>
             </>
           )}
+
       </ul>
       <div className="search-results-container">
       <SearchBar setResults={setResults} setCriteria={setCriteria}/> 

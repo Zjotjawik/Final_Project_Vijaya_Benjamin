@@ -1,19 +1,17 @@
 import React from 'react'
 import '../styles/AyurIngredients.css';
 import { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import AllData from '../components/AllData.jsx';
 import ResultsData from '../components/ResultsData.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 
-export const AyurIngredients = ({results, criteria}) => {
-
-  const [data, setData] = useState([]);
+export const AyurIngredients = ({data, setData, results, criteria}) => {
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
-    Axios.get('http://localhost:3000/treatments')
+    axios.get('http://localhost:3000/treatments')
       .then((res) => {
         setData(res.data.data);
         setIsLoading(false);
@@ -22,20 +20,21 @@ export const AyurIngredients = ({results, criteria}) => {
         console.error(err);
         setIsLoading(false);
       });
-  }, []);
-  
+   }, []);
 
-  // useEffect(() => {
-  //   // Replace 'apiEndpoint' with the actual URL of your API endpoint
-  //  fetch('http://localhost:3000/treatments')
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.error('Error fetching data: ', error));
-  // }, []);
-  // console.log(data);
-  
   return (
     <>
+
+      {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              {results.length > 0 ? (
+                <ResultsData results={results} criteria={criteria} />
+              ) : (
+                <AllData data={data} setData={setData} results={results} />
+        )}
+
       {/* { data.length > 0 && data.map((item) => { return (
 
 <table> <div key={item._id} className='container flex pt-16'>
@@ -70,6 +69,7 @@ export const AyurIngredients = ({results, criteria}) => {
         ) : (
           <AllData />
   )}
+
 
     </>
   )

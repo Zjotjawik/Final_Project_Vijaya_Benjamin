@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css'
 import {Navbar } from './components/Navbar.jsx';
 import { Routes, Route } from "react-router-dom";
@@ -17,18 +18,32 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [results, setResults] = useState([]);
   const [criteria, setCriteria] = useState();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/treatments')
+      .then((res) => {
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+   }, []);
+
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
   
   return (
     <>
         {/* <Home /> */}
         <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} results={results} setResults={setResults} setCriteria={setCriteria}/>   
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home data={data} />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/ailments" element={<Ailments />} />
-      <Route path="/ingredients" element={<AyurIngredients results={results} criteria={criteria} />} />
+    <Route path="/ingredients" element={<AyurIngredients data={data} setData={setData} results={results} criteria={criteria} />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/auth/signup" element={<SignUp />} />
