@@ -18,6 +18,7 @@ export const Login = ({ setIsLoggedIn }) => {
       }).then((response)=> {
         console.log(response);
         setIsLoggedIn(true);
+        navigateTo('/');
       })
       .catch(error => {
         if (error.response) {
@@ -95,7 +96,7 @@ export const Login = ({ setIsLoggedIn }) => {
                       
 
                      {/* <!--Forgot password link--> */}
-                    <a href="#!">Forgot password?</a>
+                    <a href="/auth/forgot-password">Forgot password?</a>
                    </div>
                       {/* <!--Register button--> */}
                    <div className="flex items-center justify-between pb-6">

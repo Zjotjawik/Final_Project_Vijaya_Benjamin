@@ -66,9 +66,28 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
               {openAilments && <DropdownAilments />}
           </li>
           <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
-          <li><NavLink to="/suggestion-form">Suggestion form</NavLink></li>
-          <li><NavLink to="/auth/signin">SignIn</NavLink></li>
-          <li><NavLink to="/auth/signup">SignUp</NavLink></li>
+          {isLoggedIn && (
+            <li>
+              <NavLink to="/suggestion-form">Suggestion form</NavLink>
+            </li>
+          )}
+          {isLoggedIn ? (
+            <li>
+              <Link to="#" onClick={handleLogout}>
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/auth/signin">Sign in</NavLink>
+              </li>
+              <li>
+                <NavLink to="/auth/signup">Sign up</NavLink>
+              </li>
+            </>
+          )}
+
       </ul>
       <div className="search-results-container">
       <SearchBar setResults={setResults} setCriteria={setCriteria}/> 
