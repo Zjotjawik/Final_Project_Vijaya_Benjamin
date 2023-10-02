@@ -8,6 +8,7 @@ export const SignUp = ({setIsLoggedIn}) => {
   const [username,  setUsername] = useState('');
   const [email,  setEmail] = useState('');
    const [password,  setPassword] = useState('');
+   const [error, setError] = useState(null);
    const navigateTo = useNavigate();
 
    const SignUp = ()=> {
@@ -29,6 +30,7 @@ export const SignUp = ({setIsLoggedIn}) => {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
+          setError(error.response.data.message);
         } else if (error.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -37,6 +39,7 @@ export const SignUp = ({setIsLoggedIn}) => {
         } else {
           // Something happened in setting up the request that triggered an Error
           console.log('Error', error.message);
+          setError('An error occurred.');
         }
         console.log(error.config);
       });
@@ -61,6 +64,7 @@ export const SignUp = ({setIsLoggedIn}) => {
                  <form >
                    <p className="mb-4"> Please register to your account   </p>
 
+                   
                    {/* <!--username input--> */}
                    <input type="text" 
                    className='mb-4 text-center rounded px-6 pb-2 pt-2.5 text-md font-medium text-black w-full border-solid border-2 border-gray-300 shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]' 
@@ -102,7 +106,9 @@ export const SignUp = ({setIsLoggedIn}) => {
                    >
                    SIGN UP
                   </button>
-                      
+
+                  {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+    
 
                     </div>
                  </form>

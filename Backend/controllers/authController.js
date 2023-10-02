@@ -181,8 +181,6 @@ const resetPassword = (req, res) => {
       return res.status(401).json({ error: 'Invalid or expired token' });
     }
 
-    // Allow the user to reset the password here
-
     // Redirect to a password reset page with the token
     res.redirect(`${process.env.HOSTADDRESS}/auth/reset-password/${token}`);
   });
