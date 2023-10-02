@@ -13,7 +13,7 @@ import { SignUp } from "./pages/SignUp.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SuggestionForm} from "./pages/SuggestionForm";
 import { ForgotPassword } from './pages/ForgotPassword';
-import { ResetPasswordComponent } from './pages/ResetPassword';
+import { ResetPassword } from './pages/ResetPassword';
 function App() {
   // TO DO change for middleaware checking component
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,7 +49,7 @@ function App() {
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/auth/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/auth/forgot-password" element={<ForgotPassword email={email} setEmail={setEmail} message={message} setMessage={setMessage}/>} /> 
-      <Route path="/auth/reset-password/:token" element={<ResetPasswordComponent />} />
+      <Route path="/auth/reset-password/:token" element={<ResetPassword />} />
       <Route path="/*" element={<Error />} />
     </Routes>
 
