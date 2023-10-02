@@ -1,14 +1,15 @@
-// Frontend/src/components/ResetPasswordComponent.jsx
-
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { useParams } from 'react-router-dom'; 
 
-export const ResetPasswordComponent = ({ token }) => {
+export const ResetPasswordComponent = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
+  const { token } = useParams();
+
   const handleResetPassword = () => {
-    Axios.post(`http://localhost:3000/auth/reset-password/${token}`, { password })
+    Axios.post(`https://cerulean-medovik-370b2c.netlify.app/reset-password/${token}`, { password })
       .then((response) => {
         setMessage(response.data.message);
       })
