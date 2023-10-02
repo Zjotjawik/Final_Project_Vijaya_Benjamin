@@ -1,12 +1,14 @@
 import  Axios  from 'axios';
 Axios.defaults.withCredentials = true;
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const SignUp = () => {
+export const SignUp = ({setIsLoggedIn}) => {
   const [username,  setUsername] = useState('');
   const [email,  setEmail] = useState('');
    const [password,  setPassword] = useState('');
+   const navigateTo = useNavigate();
 
    const SignUp = ()=> {
   Axios.post('http://localhost:3000/auth/signup', {
@@ -17,6 +19,8 @@ export const SignUp = () => {
         withCredentials: true, // Include cookies
       }).then((response)=> {
         console.log(response);
+        setIsLoggedIn(true);
+        navigateTo('/');
       })
       .catch(error => {
         if (error.response) {

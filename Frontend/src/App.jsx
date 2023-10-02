@@ -46,7 +46,7 @@ function App() {
     <Route path="/ingredients" element={<AyurIngredients data={data} setData={setData} results={results} criteria={criteria} />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-      <Route path="/auth/signup" element={<SignUp />} />
+      <Route path="/auth/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/auth/forgot-password" element={<ForgotPassword email={email} setEmail={setEmail} message={message} setMessage={setMessage}/>} /> 
       <Route path="/*" element={<Error />} />
     </Routes>
