@@ -14,8 +14,10 @@ const SliderData = [
     },
     {
       url:
+      'https://img.freepik.com/free-photo/attractive-african-woman-enjoying-face-massage-spa-salon_176420-13955.jpg?w=1380&t=st=1696315056~exp=1696315656~hmac=1ef682041b55f5ba147f9a2d60bc86b270b1e8c753e1c865101fce491ce98185'
+      
       // 'https://5.imimg.com/data5/YV/AB/GLADMIN-55768055/panchakarma-250x250.png'
-         'https://chopra.brightspotcdn.com/dims4/default/bdcaf68/2147483647/strip/true/crop/643x254+0+23/resize/1420x562!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F12%2Fd8%2F312411aaccee9fed90884c0e3fa6%2Fthe-6-tastes-of-ayurveda.jpg'
+        //  'https://chopra.brightspotcdn.com/dims4/default/bdcaf68/2147483647/strip/true/crop/643x254+0+23/resize/1420x562!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F12%2Fd8%2F312411aaccee9fed90884c0e3fa6%2Fthe-6-tastes-of-ayurveda.jpg'
     },
     {
       url:
@@ -25,7 +27,8 @@ const SliderData = [
       url:'https://welthy.es/wp-content/uploads/2023/04/MEDICINA-AYURVEDA-768x512.jpg.webp'
     },
     {
-      url:'https://www.landhotel-talblick.de/fileadmin/user_upload/04_Wellness/02_unterseiten/03_ayurveda/02_einleitung/landhotel-talblick-schwarzwald-urlaub-hotel-wellness-ayurveda-beauty-oel-behandlung.jpg'
+      url:'https://img.freepik.com/free-photo/buddhist-meditates-by-lotus-pond-tranquil-harmony-generative-ai_188544-12696.jpg?w=826&t=st=1696316059~exp=1696316659~hmac=954a3df36fee22c5cfb7d15381be6a5162b42816a57759b0b7186adc5edaa096'
+      // 'https://www.landhotel-talblick.de/fileadmin/user_upload/04_Wellness/02_unterseiten/03_ayurveda/02_einleitung/landhotel-talblick-schwarzwald-urlaub-hotel-wellness-ayurveda-beauty-oel-behandlung.jpg'
     },
     {
       url:'https://birlaayurveda.co.in/wp-content/uploads/2021/09/About-Birla-Ayurveda.jpg'
@@ -71,9 +74,9 @@ const SliderData = [
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height:'60vh',
+    height:'70vh',
     // width: '80vw',
-    margin: '40px 0px',
+    margin: '0px 0px',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     // backgroundPositionX: '70%'
@@ -83,7 +86,7 @@ const ImageSliderAuto = () => {
     <div className="containerSlideAuto">
     <div className='slide-container-auto'>
         <Fade>
-        { SliderData. map((slideImage, index) => ( <div key={index}>
+        { SliderData.map((slideImage, index) => ( <div key={index}>
            <div style={{...divStyle, backgroundImage:`url(${slideImage.url})`}}> 
            {/* <span>{slide}</span> */}
             </div> 
