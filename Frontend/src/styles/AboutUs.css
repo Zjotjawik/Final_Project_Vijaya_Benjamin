@@ -1,3 +1,7 @@
+.about-container{
+    font-family: "Helvetica Neue", "Helvetica", "Segoe UI", Tahoma, sans-serif;
+}
+
 .our-mission{
     padding: 30px;
 }
@@ -13,4 +17,22 @@ p{
     text-align: center;
     padding-bottom: 20px;
     
+}
+
+.yoga-container{
+min-height:35em;
+max-height:35em;
+text-align: justify;
+padding-right: 10px;
+padding-left: 10px;
+}
+
+.yoga-pic{
+   width: 100%;
+    height: 100%;
+    
+}
+
+.yoga-image {
+    min-width: fit-content;
 }
