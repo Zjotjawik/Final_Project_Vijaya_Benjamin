@@ -60,30 +60,30 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
       <span></span>
       </div>
       <ul className={menuOpen ? "open" : ""}>
-          <li><NavLink className ="text-xl font-bold" to="/" >Home</NavLink></li>
-          <li><NavLink className ="text-xl font-bold" to="/about">About us</NavLink></li>
-          <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink className ="text-xl font-bold" to="/ailments" >Ailments</NavLink>
+          <li><NavLink className='nav-link' to="/" >Home</NavLink></li>
+          <li><NavLink className='nav-link' to="/about">About us</NavLink></li>
+          <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink className='nav-link' to="/ailments" >Ailments</NavLink>
               {openAilments && <DropdownAilments />}
           </li>
-          <li><NavLink className ="text-xl font-bold" to="/ingredients">AyurIngredients</NavLink></li>
+          <li><NavLink className='nav-link' to="/ingredients">AyurIngredients</NavLink></li>
           {isLoggedIn && (
             <li>
-              <NavLink className ="text-xl font-bold" to="/suggestion-form">Suggestion form</NavLink>
+              <NavLink className='nav-link' to="/suggestion-form">Suggestion form</NavLink>
             </li>
           )}
           {isLoggedIn ? (
             <li>
-              <Link className ="text-xl font-bold" to="#" onClick={handleLogout}>
+              <Link to="#" onClick={handleLogout}>
                 Logout
               </Link>
             </li>
           ) : (
             <>
               <li>
-                <NavLink className ="text-xl font-bold" to="/auth/signin">SignIn</NavLink>
+                <NavLink className='nav-link' to="/auth/signin">SignIn</NavLink>
               </li>
               <li>
-                <NavLink className ="text-xl font-bold" to="/auth/signup">SignUp</NavLink>
+                <NavLink className='nav-link' to="/auth/signup">SignUp</NavLink>
               </li>
             </>
           )}
