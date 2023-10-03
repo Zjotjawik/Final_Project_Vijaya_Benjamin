@@ -14,10 +14,10 @@ const SliderData = [
     },
     {
       url:
-      'https://img.freepik.com/free-photo/attractive-african-woman-enjoying-face-massage-spa-salon_176420-13955.jpg?w=1380&t=st=1696315056~exp=1696315656~hmac=1ef682041b55f5ba147f9a2d60bc86b270b1e8c753e1c865101fce491ce98185'
+      //  'https://img.freepik.com/free-photo/young-beautiful-woman-relaxing-during-massage-spa-salon_1150-3082.jpg?w=740&t=st=1696322902~exp=1696323502~hmac=81f8b826f93fa912748fff984cc44e4b3fb2f0d442f12245dd63dc19ce7ceff6'
       
       // 'https://5.imimg.com/data5/YV/AB/GLADMIN-55768055/panchakarma-250x250.png'
-        //  'https://chopra.brightspotcdn.com/dims4/default/bdcaf68/2147483647/strip/true/crop/643x254+0+23/resize/1420x562!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F12%2Fd8%2F312411aaccee9fed90884c0e3fa6%2Fthe-6-tastes-of-ayurveda.jpg'
+           'https://chopra.brightspotcdn.com/dims4/default/bdcaf68/2147483647/strip/true/crop/643x254+0+23/resize/1420x562!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F12%2Fd8%2F312411aaccee9fed90884c0e3fa6%2Fthe-6-tastes-of-ayurveda.jpg'
     },
     {
       url:
@@ -74,7 +74,7 @@ const SliderData = [
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height:'70vh',
+    height:'60vh',
     // width: '80vw',
     margin: '0px 0px',
     backgroundRepeat: 'no-repeat',

@@ -21,7 +21,7 @@
   .card-data{
     display:flex;
     flex-direction:column;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
   }
   .card-title {
     margin: 0.5rem 5%;
