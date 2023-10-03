@@ -12,7 +12,7 @@ export const SignUp = ({setIsLoggedIn}) => {
    const navigateTo = useNavigate();
 
    const SignUp = ()=> {
-  Axios.post('http://localhost:3000/auth/signup', {
+  Axios.post('https://final-project-1lrc.onrender.com/auth/signup', {
         username: username,
         email: email,
         password: password,

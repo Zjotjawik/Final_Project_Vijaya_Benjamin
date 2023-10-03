@@ -146,6 +146,7 @@ const forgotPassword = async (req, res) => {
     const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     // Send a password reset email with the token link
+    // const resetLink = `${process.env.HOSTADDRESS}/`;
     const resetLink = `${process.env.HOSTADDRESS}/auth/reset-password/${token}`;
 
     // Email content
@@ -182,6 +183,7 @@ const resetPassword = (req, res) => {
     }
 
     // Redirect to a password reset page with the token
+    // res.redirect(`${process.env.HOSTADDRESS}/`);
     res.redirect(`${process.env.HOSTADDRESS}/auth/reset-password/${token}`);
   });
 };

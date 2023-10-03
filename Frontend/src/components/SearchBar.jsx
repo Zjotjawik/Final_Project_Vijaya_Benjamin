@@ -10,7 +10,7 @@ const SearchBar = ({ setCriteria, setResults, results }) => {
 
   const fetchData = async (value) => {
     try {
-      let { data } = await axios.get("http://localhost:3000/treatments");
+      let { data } = await axios.get("https://final-project-1lrc.onrender.com/treatments");
       if (data) {
         const result = data.data.filter(
           (ele) =>

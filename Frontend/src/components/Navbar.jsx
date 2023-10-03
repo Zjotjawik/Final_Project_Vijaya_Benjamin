@@ -16,7 +16,7 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
     const [openAilments, setOpenAilments] = useState(false);
 
     const handleLogout = () => {
-      Axios.delete('http://localhost:3000/auth/logout', {
+      Axios.delete('https://final-project-1lrc.onrender.com/auth/logout', {
         withCredentials: true, // Include cookies
       })
         .then((response) => {

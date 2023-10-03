@@ -10,7 +10,7 @@ export const Login = ({ setIsLoggedIn }) => {
    const [password,  setPassword] = useState('');
 
     const Login = ()=> {
-      Axios.post('http://localhost:3000/auth/signin', {
+      Axios.post('https://final-project-1lrc.onrender.com/auth/signin', {
         email: email,
         password: password,
       }, {

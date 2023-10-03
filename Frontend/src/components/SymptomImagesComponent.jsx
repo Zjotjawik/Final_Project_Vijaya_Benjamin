@@ -7,7 +7,7 @@ export const SymptomImagesComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    Axios.get('http://localhost:3000/treatments')
+    Axios.get('https://final-project-1lrc.onrender.com/treatments')
       .then((res) => {
         // Filter the data to include only entries with ailment and picture fields
         const filteredData = res.data.data.filter((item) => {

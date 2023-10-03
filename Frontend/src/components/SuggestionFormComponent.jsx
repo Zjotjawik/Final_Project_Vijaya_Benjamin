@@ -66,7 +66,7 @@ export const SuggestionFormComponent = () => {
         englishNames: formData.englishNames.filter(name => name.trim() !== ''),
       };
 
-      const response = await fetch('http://localhost:3000/treatments', {
+      const response = await fetch('https://final-project-1lrc.onrender.com/treatments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

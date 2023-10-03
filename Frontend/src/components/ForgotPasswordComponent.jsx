@@ -11,7 +11,7 @@ export const ForgotPasswordComponent = ({email, setEmail, message, setMessage}) 
     try {
       setIsLoading(true);
 
-      const response = await Axios.post('http://localhost:3000/auth/forgot-password', { email });
+      const response = await Axios.post('https://final-project-1lrc.onrender.com/auth/forgot-password', { email });
       setMessage(response.data.message);
     } catch (error) {
       console.error(error);

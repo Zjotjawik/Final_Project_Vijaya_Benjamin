@@ -9,7 +9,7 @@ export const ResetPasswordComponent = () => {
   const { token } = useParams();
 
   const handleResetPassword = () => {
-    Axios.post(`https://cerulean-medovik-370b2c.netlify.app/reset-password/${token}`, { password })
+    Axios.post(`https://final-project-1lrc.onrender.com/reset-password/${token}`, { password })
       .then((response) => {
         setMessage(response.data.message);
       })

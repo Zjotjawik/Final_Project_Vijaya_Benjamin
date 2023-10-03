@@ -11,7 +11,7 @@ export const AyurIngredients = ({data, setData, results, criteria}) => {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    axios.get('http://localhost:3000/treatments')
+    axios.get('https://final-project-1lrc.onrender.com/treatments')
       .then((res) => {
         setData(res.data.data);
         setIsLoading(false);
