@@ -73,7 +73,7 @@ const ResultsData = ({ results, criteria }) => {
                 
                   
                   <ul className="text-left">
-                  <h3 className="medical-uses font-bold ">Medical Uses:</h3>
+                  <h3 className="medical-uses font-bold text-center text-gray-800 ">Medical Uses:</h3>
                     {
                     criteria.criteria == "Medical Uses" ?
                     //  item.medicalUses

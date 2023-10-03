@@ -44,10 +44,12 @@
 }
 
 .medical-uses{
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 10px;
     font-size: 1.5rem;
     font-family: cursive;
+    text-align: center;
+    color: rgb(55, 48, 48);
 }
 /* .symptom{
     font-style: italic;
