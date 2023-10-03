@@ -29,8 +29,8 @@
 }
 
  .hindi-names{
-
-    font-size: 1.5rem;
+    font-family: cursive;
+    font-size: 1.4rem;
 }
 
 .span-english{
@@ -39,8 +39,8 @@
 }
 
  .english-names{
-
-    font-size: 1.5rem;
+    font-family: cursive;
+    font-size: 1.4rem;
 }
 
 .medical-uses{
@@ -65,7 +65,9 @@
 .row-alldata{
     padding: 50px;
     background-color: rgb(215, 222, 196);
-    height: 900px;
+    min-height: 1200px;
+    max-height: 1200px;
+    text-align: justify;
     display: flex;
     justify-content: space-between;
  
@@ -77,3 +79,7 @@
 }
   
 } */
+
+.description-all{
+    font-size: 22px;
+}
