@@ -1,31 +1,36 @@
 import { useState, useEffect } from 'react';
+import '../styles/AllData.css';
 
 const AllData = ({data, setData}) => {
   return (
     <>
       { data.length > 0 && data.map((item) => { return (
-        <table key={item._id}> 
-            <div key={item._id} className='container flex '>
-              <div className='parallel'>
-                  <tr> 
-                    <th><h2 className='hindi-names'>Hindi Names: {item.hindiName.join(', ')}</h2> </th> 
-                    <th> <h2 className='english-names'>English Names: {item.englishName.join(', ')}</h2></th>  
-                    <th> <h3 className='medical-uses'>Medical Uses:</h3></th>
-                  </tr>
+        // <div className='container '>
+        <div key={item._id} className='container-innertext'> 
+            <div key={item._id} className='row-alldata '>
+            <div className='col-md-4 '> 
+                <img className='img-responsive rounded-end  ' src={item.picture} alt="Plant" />
+              </div>
+              <div className='col-md-8 '>
+                 
+                    <h2 className='hindi-names text-center font-bold'>
+                    <span className='span-hindi'>Hindi Names:</span>{''} {item.hindiName.join(', ')}</h2>
+                     <h2 className='english-names text-center font-bold'> <span className='span-english '>English Names:</span>{''} {item.englishName.join(', ')}</h2> 
                   <ul className='text-left'>
+                  <h3 className='medical-uses font-bold'>Medical Uses:</h3>
                     {item.medicalUses.map((use, index) => (
-                      <li key={index}>
-                        <strong className='symptom'>Symptom:</strong> {use.symptom}
-                        <p className='description'>Description:{use.description}</p>
+                      <li key={index} >
+                      <p className='symptom-name'><strong className='symptom'>Symptom:</strong> {use.symptom} </p>  
+                        <p className='description'> <strong>
+                        Description:</strong> {use.description}</p>
                       </li>
                     ))}
                   </ul>
               </div>
-              <div className='parallel'> 
-                <img className='picture' src={item.picture} alt="Plant" />
-              </div>
+             
             </div>
-        </table>
+        </div>
+        // </div>
     )})}
     </>
   );

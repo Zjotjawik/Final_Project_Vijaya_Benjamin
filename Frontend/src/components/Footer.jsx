@@ -18,10 +18,10 @@ export const Footer = () => {
                             <p>Your Guide to Natural Healing </p>
                             <div className="footer-icons">
                      
-                                <i className="fa-brands fa-facebook"></i>
-                                <i className="fa-brands fa-twitter"></i>
-                                <i className="fa-brands fa-instagram"></i>
-                                <i className="fa-brands fa-linkedin-in"></i>
+                               <a href="https://www.facebook.com/"> <i className="fa-brands fa-facebook" ></i></a>
+                             <a href="https://twitter.com/">   <i className="fa-brands fa-twitter"  > </i></a>
+                             <a href="https://www.instagram.com/">   <i className="fa-brands fa-instagram" ></i></a>
+                             <a href="https://www.linkedin.com/">   <i className="fa-brands fa-linkedin-in" ></i></a>
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-3 col-12 ft-2">
@@ -34,10 +34,10 @@ export const Footer = () => {
                                     <a className="" href="/">Contact Us</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">Suggestion form</a>
+                                    <a className="" href="/suggestion-form">Suggestion form</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">Ailments</a>
+                                    <a className="" href="/ingredients">AyurIngredients</a>
                                 </li>
                                 {/* <li className="nav-item">
                                     <a className="" href="/">Portfolio</a>
@@ -48,10 +48,10 @@ export const Footer = () => {
                             <h5>Information</h5>
                             <ul>
                             <li className="nav-item">
-                                    <a className="" href="/">AboutUs</a>
+                                    <a className="" href="/about">AboutUs</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">MyAccount</a>
+                                    <a className="" href="/auth/signin">MyAccount</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="" href="/">FAQ</a>

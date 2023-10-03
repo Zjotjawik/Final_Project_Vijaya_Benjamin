@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import "../styles/ResultsData.css";
 
 const ResultsData = ({ results, criteria }) => {
 //   {
@@ -52,30 +53,29 @@ const ResultsData = ({ results, criteria }) => {
       {results.length > 0 &&
         results.map((item) => {
           return (
-            <table key={item._id}>
-              {/* {" "} */}
-              <div  className="container flex ">
-                <div className="parallel">
-                  <tr>
-                    {/* {" "} */}
-                    <th>
-                      <h2 className="hindi-names">
-                        Hindi Names: {item.hindiName.join(", ")}
+            <div  className="container-resultstext">
+             
+              <div key={item._id} className="row-results ">
+                <div className="col-md-4">
+                  <img className="picture" src={item.picture} alt="Plant" />
+                </div>
+                  
+                <div className='col-md-8 '>
+                      <h2 className="hindi-resultnames text-center font-bold">
+                       <span className='span-resulthindi '> Hindi Names: </span>{item.hindiName.join(", ")}
                       </h2> 
-                      {/* {" "} */}
-                    </th>
-                    <th>
-                      {/* {" "} */}
-                      <h2 className="english-names">
-                        English Names: {item.englishName.join(", ")}
+                  
+                    
+                  
+                    
+                      <h2 className="english-resultnames text-center font-bold">
+                      <span  className='span-resultenglish ' > English Names:</span> {item.englishName.join(", ")}
                       </h2>
-                    </th>
-                    <th>
-                      {/* {" "} */}
-                      <h3 className="medical-uses">Medical Uses:</h3>
-                    </th>
-                  </tr>
+                
+                
+                  
                   <ul className="text-left">
+                  <h3 className="medical-uses font-bold">Medical Uses:</h3>
                     {
                     criteria.criteria == "Medical Uses" ?
                     //  item.medicalUses
@@ -89,10 +89,10 @@ const ResultsData = ({ results, criteria }) => {
     use.symptom?.toLowerCase().includes(criteria.search?.toLowerCase())
     )?.map((use, index) => (
                       <li key={index}>
-                        <strong className="symptom">Symptom:</strong>
-                        {use.symptom}
+                      <p className='symptom-name'> <strong className="symptom">Symptom:</strong>
+                        {use.symptom} </p>
                         <p className="description">
-                          Description:{use.description}
+                        <strong>  Description:</strong>{use.description}
                         </p>
                       </li>
                     ))
@@ -101,19 +101,18 @@ const ResultsData = ({ results, criteria }) => {
                       <li key={index}>
                         <strong className="symptom">Symptom:</strong>{" "}
                         {use.symptom}
-                        <p className="description">
+                        <p className="description-result">
                           Description:{use.description}
                         </p>
                       </li>
                     ))
                   }
                   </ul>
+                  </div>
                 </div>
-                <div className="parallel">
-                  <img className="picture" src={item.picture} alt="Plant" />
-                </div>
+               
               </div>
-            </table>
+            
           );
         })}
     </>

@@ -28,11 +28,11 @@ export const SymptomImagesComponent = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className='symptom-images'>
+        <div className='symptom-images '>
           {data.map((item) => (
-            <div key={item._id.$oid} className='symptom-image'>
-              <h3 className='ailment'>{item.ailment}</h3>
-              <img src={item.picture} alt={item.ailment} />
+            <div key={item._id.$oid} className='symptom-image  justify-center m-4'>
+              <h3 className='ailment '>{item.ailment}</h3>
+              <img className='ailment-image bg-yellow-300 w-60 h-25 p-2  '  src={item.picture} alt={item.ailment} />
             </div>
           ))}
         </div>

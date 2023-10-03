@@ -7,7 +7,6 @@ import '../styles/DropdownAilments.css'
 const DropdownAilments = () => {
    const [dropdown, setDropdown] = useState(false);
   return (
-    <div className=''>
       <ul className= {dropdown ? "ailments-submenu clicked" : "ailments-submenu"}
       onClick={() => setDropdown(!dropdown)}  > 
         {ailmentsDropdown.map((item) => {
@@ -24,7 +23,6 @@ const DropdownAilments = () => {
           );
         })}
       </ul>
-    </div>
   )
 }
 

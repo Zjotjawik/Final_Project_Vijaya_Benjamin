@@ -1,0 +1,79 @@
+ .container-innertext{
+    margin:50px;
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+ }
+
+ .container-innertext:hover{
+    box-shadow: 0 0 20px 0 rgba(29, 225, 29, 0.2);
+ }
+ 
+ .img-responsive{
+    width:25em;
+    height:32em;
+    margin-left:3em;
+    
+}
+
+
+
+.col-md-8{
+    /* margin-left: 70px; */
+    padding-left: 90px;
+   
+}
+.span-hindi{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+
+ .hindi-names{
+
+    font-size: 1.5rem;
+}
+
+.span-english{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+
+ .english-names{
+
+    font-size: 1.5rem;
+}
+
+.medical-uses{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+/* .symptom{
+    font-style: italic;
+} */
+.symptom-name{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+
+
+ .uses{
+
+    font-size: 1.5rem;
+}
+.row-alldata{
+    padding: 50px;
+    background-color: rgb(215, 222, 196);
+    height: 900px;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+/* @media(max-width: 480px){
+.col-md-8{
+    flex-direction: column;
+}
+  
+} */

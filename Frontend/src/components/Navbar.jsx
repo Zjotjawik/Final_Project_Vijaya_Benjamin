@@ -60,30 +60,30 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
       <span></span>
       </div>
       <ul className={menuOpen ? "open" : ""}>
-          <li><NavLink to="/" >Home</NavLink></li>
-          <li><NavLink to="/about">About us</NavLink></li>
-          <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink to="/ailments" >Ailments</NavLink>
+          <li><NavLink className ="text-xl font-bold" to="/" >Home</NavLink></li>
+          <li><NavLink className ="text-xl font-bold" to="/about">About us</NavLink></li>
+          <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink className ="text-xl font-bold" to="/ailments" >Ailments</NavLink>
               {openAilments && <DropdownAilments />}
           </li>
-          <li><NavLink to="/ingredients">Ayur Ingredients</NavLink></li>
+          <li><NavLink className ="text-xl font-bold" to="/ingredients">AyurIngredients</NavLink></li>
           {isLoggedIn && (
             <li>
-              <NavLink to="/suggestion-form">Suggestion form</NavLink>
+              <NavLink className ="text-xl font-bold" to="/suggestion-form">Suggestion form</NavLink>
             </li>
           )}
           {isLoggedIn ? (
             <li>
-              <Link to="#" onClick={handleLogout}>
+              <Link className ="text-xl font-bold" to="#" onClick={handleLogout}>
                 Logout
               </Link>
             </li>
           ) : (
             <>
               <li>
-                <NavLink to="/auth/signin">Sign in</NavLink>
+                <NavLink className ="text-xl font-bold" to="/auth/signin">SignIn</NavLink>
               </li>
               <li>
-                <NavLink to="/auth/signup">Sign up</NavLink>
+                <NavLink className ="text-xl font-bold" to="/auth/signup">SignUp</NavLink>
               </li>
             </>
           )}

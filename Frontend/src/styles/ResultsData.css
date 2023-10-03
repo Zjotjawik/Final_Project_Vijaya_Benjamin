@@ -1,0 +1,55 @@
+.picture{
+    width:15em;
+    height:16em;
+    margin-left:7em;
+    
+}
+
+.row-results{
+
+padding:50px;
+    height:22em;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(215, 222, 196);
+    opacity: 0.9;
+    width:80em;
+    
+    
+}
+
+.container-resultstext{
+    margin:2em;
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    margin-left: 14em;
+}
+
+.container-resultstext:hover{
+    box-shadow: 0 0 20px 0 rgba(29, 225, 29, 0.2);
+    width:80em
+ }
+ .span-resulthindi{
+    font-size: 1.3rem;
+    font-family: cursive;
+}
+
+ .hindi-resultnames{
+
+    font-size: 1.2rem;
+}
+
+.span-resultenglish{
+    font-size: 1.3rem;
+    font-family: cursive;
+}
+
+ .english-resultnames{
+
+    font-size: 1.2rem;
+}
+
+.description-result{
+   background-color: brown;
+}
