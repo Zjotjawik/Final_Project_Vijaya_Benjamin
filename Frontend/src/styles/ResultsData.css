@@ -1,19 +1,23 @@
 .picture{
-    width:15em;
+    width:18em;
     height:16em;
-    margin-left:7em;
+    margin-left:2em;
+    padding-right: 20px;
     
 }
 
 .row-results{
 
-padding:50px;
+padding:40px;
     height:22em;
     display: flex;
     justify-content: space-between;
+
     background-color: rgb(215, 222, 196);
     opacity: 0.9;
-    width:80em;
+    width:100%;
+    /* column-gap: 10px; */
+ 
     
     
 }
@@ -23,33 +27,67 @@ padding:50px;
     color: black;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1rem;
-    margin-left: 14em;
+    margin-left: 3em;
+    margin-right: 5em;
 }
 
 .container-resultstext:hover{
-    box-shadow: 0 0 20px 0 rgba(29, 225, 29, 0.2);
-    width:80em
+    box-shadow: 0 0 20px 0 rgba(225, 111, 29, 0.2);
+    /* width:93% */
  }
  .span-resulthindi{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: cursive;
 }
 
  .hindi-resultnames{
-
-    font-size: 1.2rem;
+    padding-left: 120px;
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 .span-resultenglish{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: cursive;
 }
 
  .english-resultnames{
-
-    font-size: 1.2rem;
+    text-align: center;
+    padding-left: 120px;
+    font-size: 1.3rem;
 }
 
-.description-result{
-   background-color: brown;
+.symptom{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+.symptom-name{
+    font-size: 1.5rem;
+}
+
+.medical-uses{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+.description{
+    font-size: 1.5rem;
+    font-family: cursive;
+}
+
+/* .text-left{
+    margin-left: 2em;
+} */
+
+.col-text{
+    /* margin-left: 70px; */
+    /* padding-left: 90px; */
+    /* float:left; */
+    column-gap:10px ;
+    /* margin-left: 20px; */
+    /* display: inline-block; */
+    min-width: 120em;
+    max-width:120em ;
+    text-align:justify;
+ 
+   
 }

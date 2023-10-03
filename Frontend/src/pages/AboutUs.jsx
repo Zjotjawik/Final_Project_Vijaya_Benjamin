@@ -1,15 +1,15 @@
 import React from 'react'
-
+import '../styles/AboutUs.css'
 export const AboutUs = () => {
   return (
     <>
 
-    <div className='flex justify-content-center w-100  align-content-center text-serif text-xl text-center  bg-orange-300'> 
-        <div className='w-50 ' >
+    <div className='flex justify-content-center w-100 h-50 align-content-center text-serif text-xl text-center  bg-orange-300'> 
+        <div className='w-180 ' >
            <h1 className='pb-10 mt-40 font-bold text-center text-5xl text-gray-500'> About Us</h1>  
             <p className='about-intro  text-2xl'> Welcome to Ayurease, your trusted source for ancient Ayurvedic wisdom and natural remedies. At Ayurease, we are dedicated to helping you find holistic solutions for common ailments through the power of Ayurveda. </p>
         </div>
-         <div className='w-50'>
+         <div className='w-150'>
            <img src="https://img.freepik.com/free-photo/person-conducting-reiki-therapy_23-2149403921.jpg?w=1380&t=st=1696228941~exp=1696229541~hmac=baf3e3e38ddd7f5f017e6660a0045da7b36abc2bbce0f5749af53c2caac5d1d9" alt="relaxation"  />
          </div>
       

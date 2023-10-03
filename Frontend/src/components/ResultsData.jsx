@@ -56,11 +56,9 @@ const ResultsData = ({ results, criteria }) => {
             <div  className="container-resultstext">
              
               <div key={item._id} className="row-results ">
-                <div className="col-md-4">
-                  <img className="picture" src={item.picture} alt="Plant" />
-                </div>
+               
                   
-                <div className='col-md-8 '>
+                <div className='col-text '>
                       <h2 className="hindi-resultnames text-center font-bold">
                        <span className='span-resulthindi '> Hindi Names: </span>{item.hindiName.join(", ")}
                       </h2> 
@@ -75,7 +73,7 @@ const ResultsData = ({ results, criteria }) => {
                 
                   
                   <ul className="text-left">
-                  <h3 className="medical-uses font-bold">Medical Uses:</h3>
+                  <h3 className="medical-uses font-bold ">Medical Uses:</h3>
                     {
                     criteria.criteria == "Medical Uses" ?
                     //  item.medicalUses
@@ -95,6 +93,7 @@ const ResultsData = ({ results, criteria }) => {
                         <strong>  Description:</strong>{use.description}
                         </p>
                       </li>
+                
                     ))
                     :
                     item.medicalUses.map((use, index) => (
@@ -102,13 +101,18 @@ const ResultsData = ({ results, criteria }) => {
                         <strong className="symptom">Symptom:</strong>{" "}
                         {use.symptom}
                         <p className="description-result">
-                          Description:{use.description}
+                          <strong>Description: </strong>{use.description}
                         </p>
                       </li>
                     ))
                   }
                   </ul>
                   </div>
+
+                  <div className="col-md-4">
+                  <img className="picture" src={item.picture} alt="Plant" />
+                </div>
+
                 </div>
                
               </div>
