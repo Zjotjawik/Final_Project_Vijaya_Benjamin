@@ -43,5 +43,5 @@ app.use('/auth', authRoutes);
 connectDB();
 
 app.listen(port, () => {
-    console.log(`http://localhost:${port}`)
+    console.log(`https://final-project-1lrc.onrender.com`)
 });
