@@ -51,7 +51,7 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
 
    return (
     <>
-    <nav >
+    <nav className='navbar'>
       {/* <Link to="/" className="logo"><img src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="logo" /></Link> */}
       <Link to="/" className="title"><img className="logo" src="https://pranadaayurved.in/wp-content/uploads/2022/09/Pranada-Logo-tree.png" alt="logo" />AyurEase<span>Your Guide to Natural Healing</span></Link>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
