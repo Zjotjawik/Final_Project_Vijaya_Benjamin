@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
+import '../styles/SearchBar.css'
 
 const SearchBar = ({ setCriteria, setResults, results }) => {
   const [input, setInput] = useState("");
@@ -92,6 +93,7 @@ const SearchBar = ({ setCriteria, setResults, results }) => {
       <FaSearch id="search-icon" />
       <form onSubmit={handleSubmit}>
         <input
+          className="searchboxinputfield"
           name="search-name"
           type="text"
           placeholder="Type to search..."
