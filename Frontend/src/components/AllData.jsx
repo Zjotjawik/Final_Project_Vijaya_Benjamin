@@ -21,7 +21,7 @@ const AllData = ({data, setData}) => {
                     {item.medicalUses.map((use, index) => (
                       <li key={index} >
                       <p className='symptom-name'><strong className='symptom'>Symptom:</strong> {use.symptom} </p>  
-                        <p className='description'> <strong>
+                        <p className='description-all'> <strong>
                         Description:</strong> {use.description}</p>
                       </li>
                     ))}

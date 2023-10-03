@@ -29,7 +29,7 @@
 }
 
  .hindi-names{
-
+    font-family: cursive;
     font-size: 1.5rem;
 }
 
@@ -39,7 +39,7 @@
 }
 
  .english-names{
-
+    font-family: cursive;
     font-size: 1.5rem;
 }
 
@@ -58,17 +58,18 @@
 }
 
 
- .uses{
+ /* .uses{
 
     font-size: 1.5rem;
-}
+} */
 .row-alldata{
     padding: 50px;
     background-color: rgb(215, 222, 196);
-    height: 900px;
+    min-height: 1200px;
+    max-height: 1200px;
     display: flex;
     justify-content: space-between;
- 
+    text-align: justify;
 }
 
 /* @media(max-width: 480px){
