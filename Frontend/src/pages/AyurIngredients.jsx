@@ -35,10 +35,17 @@ export const AyurIngredients = ({data, setData, results, criteria}) => {
                 <AllData data={data} setData={setData} results={results} />
         )}
 
+
  
 
 {/* 
  {results.length > 0 ? <ResultsData results={results} criteria={criteria}/> : <AllData results={results} /> }
+
+      
+
+
+
+
  {isLoading ? (
       <LoadingSpinner />
     ) : (

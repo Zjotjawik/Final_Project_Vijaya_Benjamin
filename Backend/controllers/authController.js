@@ -131,12 +131,14 @@ const logout = (req, res) => {
 };
 
 
-const forgotPassword = (req, res) => {
+const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
-  // Check if the user with this email exists in your database
-  User.findOne({ email }, (err, user) => {
-    if (err || !user) {
+  try {
+    // Check if the user with this email exists in your database
+    const user = await User.findOne({ email }).exec();
+
+    if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
@@ -160,15 +162,13 @@ const forgotPassword = (req, res) => {
     };
 
     // Send the email using Nodemailer
-    transporter.sendMail(mailOptions, (error) => {
-      if (error) {
-        console.error('Error sending password reset email:', error);
-        return res.status(500).json({ error: 'Email could not be sent' });
-      }
-      
-      res.json({ message: 'Password reset email sent' });
-    });
-  });
+    await transporter.sendMail(mailOptions);
+    
+    res.json({ message: 'Password reset email sent' });
+  } catch (error) {
+    console.error('Error sending password reset email:', error);
+    return res.status(500).json({ error: 'Email could not be sent' });
+  }
 };
 
 
@@ -180,8 +180,6 @@ const resetPassword = (req, res) => {
     if (err) {
       return res.status(401).json({ error: 'Invalid or expired token' });
     }
-
-    // Allow the user to reset the password here
 
     // Redirect to a password reset page with the token
     res.redirect(`${process.env.HOSTADDRESS}/auth/reset-password/${token}`);

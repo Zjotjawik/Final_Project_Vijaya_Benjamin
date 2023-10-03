@@ -1,12 +1,15 @@
 import  Axios  from 'axios';
 Axios.defaults.withCredentials = true;
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const SignUp = () => {
+export const SignUp = ({setIsLoggedIn}) => {
   const [username,  setUsername] = useState('');
   const [email,  setEmail] = useState('');
    const [password,  setPassword] = useState('');
+   const [error, setError] = useState(null);
+   const navigateTo = useNavigate();
 
    const SignUp = ()=> {
   Axios.post('http://localhost:3000/auth/signup', {
@@ -17,6 +20,8 @@ export const SignUp = () => {
         withCredentials: true, // Include cookies
       }).then((response)=> {
         console.log(response);
+        setIsLoggedIn(true);
+        navigateTo('/');
       })
       .catch(error => {
         if (error.response) {
@@ -25,6 +30,7 @@ export const SignUp = () => {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
+          setError(error.response.data.message);
         } else if (error.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -33,6 +39,7 @@ export const SignUp = () => {
         } else {
           // Something happened in setting up the request that triggered an Error
           console.log('Error', error.message);
+          setError('An error occurred.');
         }
         console.log(error.config);
       });
@@ -57,6 +64,7 @@ export const SignUp = () => {
                  <form >
                    <p className="mb-4"> Please register to your account   </p>
 
+                   
                    {/* <!--username input--> */}
                    <input type="text" 
                    className='mb-4 text-center rounded px-6 pb-2 pt-2.5 text-md font-medium text-black w-full border-solid border-2 border-gray-300 shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]' 
@@ -98,7 +106,9 @@ export const SignUp = () => {
                    >
                    SIGN UP
                   </button>
-                      
+
+                  {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+    
 
                     </div>
                  </form>
