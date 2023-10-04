@@ -73,7 +73,7 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
           )}
           {isLoggedIn ? (
             <li>
-              <Link to="#" onClick={handleLogout}>
+              <Link className='nav-link' to="#" onClick={handleLogout}>
                 Logout
               </Link>
             </li>
