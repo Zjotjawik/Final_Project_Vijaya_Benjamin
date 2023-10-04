@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 
+
 const treatmentSchema = new mongoose.Schema({
   hindiName: {
     type: [String],
