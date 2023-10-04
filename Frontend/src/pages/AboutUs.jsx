@@ -20,8 +20,8 @@ export const AboutUs = () => {
       <p className='text-serif text-2xl ' >Our mission is to provide accessible and reliable information about Ayurvedic remedies and traditional healing practices. We aim to empower individuals to take control of their well-being by offering natural and time-tested solutions for a variety of health concerns.</p>
       
       <ul>
-        <h2 className='font-bold mt-7 mb-2 text-3xl text-gray-500 text-center'>What Sets Us Apart</h2>
-        <li className=' text-2xl'><span className='font-bold '>Authentic Ayurveda: </span> We are committed to upholding the authenticity and integrity of Ayurvedic practices. Our remedies are derived from ancient texts and are backed by centuries of wisdom.
+        <h2 className=' para-2 font-bold mt-7 mb-2 text-3xl text-gray-500 text-center'>What Sets Us Apart</h2>
+        <li className=' text-2xl '><span className='font-bold '>Authentic Ayurveda: </span> We are committed to upholding the authenticity and integrity of Ayurvedic practices. Our remedies are derived from ancient texts and are backed by centuries of wisdom.
         <li className='mt-4'><span className='font-bold'>Comprehensive Ailment Directory:</span>Our website provides a user-friendly platform where you can easily search for specific health concerns and discover the Ayurvedic ingredients and remedies associated with them.</li>
         </li>
         <li className='mt-4 text-2xl mb-20'> <span className='font-bold'>Community and Support:</span>Join our community of like-minded individuals who are on a journey to better health. Connect with others, ask questions, and share your experiences.</li>
