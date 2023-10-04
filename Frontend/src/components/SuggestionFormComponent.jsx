@@ -188,7 +188,7 @@ export const SuggestionFormComponent = () => {
             Add Medical Use
           </button>
         </div>
-        <button className="button-suggestion" type="submit">Submit</button>
+        <button className="button-suggestion uppercase" type="submit">Submit</button>
       </form>
     </div>
   );

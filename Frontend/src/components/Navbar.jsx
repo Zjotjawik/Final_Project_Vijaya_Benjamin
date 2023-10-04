@@ -61,14 +61,14 @@ export const Navbar = ({ setIsLoggedIn, results, setResults, setCriteria, isLogg
       </div>
       <ul className={menuOpen ? "open" : ""}>
           <li><NavLink className='nav-link' to="/" >Home</NavLink></li>
-          <li><NavLink className='nav-link' to="/about">About us</NavLink></li>
+          <li><NavLink className='nav-link' to="/about">AboutUs</NavLink></li>
           <li onMouseEnter={()=> setOpenAilments(true)} onMouseLeave={()=> setOpenAilments(false)}><NavLink className='nav-link' to="/ailments" >Ailments</NavLink>
               {openAilments && <DropdownAilments />}
           </li>
           <li><NavLink className='nav-link' to="/ingredients">AyurIngredients</NavLink></li>
           {isLoggedIn && (
             <li>
-              <NavLink className='nav-link' to="/suggestion-form">Suggestion form</NavLink>
+              <NavLink className='nav-link' to="/suggestion-form">SuggestionForm</NavLink>
             </li>
           )}
           {isLoggedIn ? (
