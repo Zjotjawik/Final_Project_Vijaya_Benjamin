@@ -19,7 +19,7 @@ export default defineConfig({
     minify: 'terser', // Minify your code using Terser (optional, can be set to 'esbuild' for faster minification)
     
   },
-  esbuild: {
-    jsxInject: `import React from 'react'`,
-  },
+  // esbuild: {
+  //   jsxInject: `import React from 'react'`,
+  // },
 });
