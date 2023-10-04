@@ -17,5 +17,9 @@ export default defineConfig({
     assetsDir: '.', // Directory for static assets relative to your project root
     sourcemap: true, // Enable source maps for debugging (optional)
     minify: 'terser', // Minify your code using Terser (optional, can be set to 'esbuild' for faster minification)
+    
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
   },
 });
