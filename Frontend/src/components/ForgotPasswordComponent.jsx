@@ -24,9 +24,10 @@ export const ForgotPasswordComponent = ({email, setEmail, message, setMessage}) 
 
   return (
     <div className='fp-container'>
-      <h2>Forgot Password</h2>
-      <p>Enter your email address to reset your password.</p>
+      <h2 className='forgot-title'>Forgot Password</h2>
+      <p className='resetmsg'>Enter your email address to reset your password.</p>
       <input
+      className='email-forgot'
         type="email"
         placeholder="Email"
         value={email}
@@ -37,7 +38,7 @@ export const ForgotPasswordComponent = ({email, setEmail, message, setMessage}) 
           <LoadingSpinner />
         </div>
       ) : (
-        <button onClick={handleResetPassword}>Reset Password</button>
+        <button classname='resetpass ' onClick={handleResetPassword}> <br />Reset my Password</button>
       )}
       <p>{message}</p>
     </div>
