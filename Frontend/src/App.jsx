@@ -43,7 +43,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home data={data} />} />
       <Route path="/about" element={<AboutUs />} />
-      <Route path="/ailments" element={<Ailments />} />
+      <Route path="/ailments" element={<Ailments  setCriteria={setCriteria} setResults={setResults} results={results} />} />
     <Route path="/ingredients" element={<AyurIngredients data={data} setData={setData} results={results} criteria={criteria} />} />
       <Route path="/suggestion-form" element={<SuggestionForm/>}/>
       <Route path="/auth/signin" element={<Login setIsLoggedIn={setIsLoggedIn} />} />

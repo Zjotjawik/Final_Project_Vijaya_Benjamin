@@ -1,12 +1,12 @@
 import React from 'react'
 import { SymptomImagesComponent } from '../components/SymptomImagesComponent'
 
-export const Ailments = () => {
+export const Ailments = ({ setCriteria, setResults, results }) => {
   return (
 <>
   
 <div>
-      <SymptomImagesComponent />
+      <SymptomImagesComponent setCriteria={setCriteria} setResults={setResults} results={results} />
     </div>
   </>
   )

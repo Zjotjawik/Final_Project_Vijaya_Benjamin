@@ -67,7 +67,7 @@ const settings = {
     <div className="slider-container p-40">
       {/* <h2>React Slick Slider Example</h2> */}
       <Slider {...settings} >
-          {data.slice(0,10).map(({_id, picture, medicalUses, hindiName, englishName, buttonText, link}) => 
+          {data && data.slice(0,10).map(({_id, picture, medicalUses, hindiName, englishName, buttonText, link}) => 
    <Card key={_id} picture={picture} englishName={englishName} hindiName={hindiName} medicalUses={medicalUses} buttonText={buttonText}  link={link}/>)}
      </Slider>
 
